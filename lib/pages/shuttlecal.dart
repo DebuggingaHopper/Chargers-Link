@@ -61,7 +61,13 @@ class ShuttleScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: dashColor,
       appBar: AppBar(
-        title: Text('Friday & Saturday Departures'),
+        title: Text(
+          'Friday & Saturday Departures',
+          style: GoogleFonts.publicSans(
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: ListView(
         children: [

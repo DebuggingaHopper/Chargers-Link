@@ -88,7 +88,10 @@ class _TableEventsExampleState extends State<TableEventsExample> {
       appBar: AppBar(
           title: Text(
             'Academic Calendar',
-            style: GoogleFonts.publicSans(),
+            style: GoogleFonts.publicSans(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           backgroundColor: Color(0xFF0A5678)),
       body: Column(

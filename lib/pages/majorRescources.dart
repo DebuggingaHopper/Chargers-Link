@@ -281,7 +281,10 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
       appBar: AppBar(
         title: Text(
           'Majors',
-          style: GoogleFonts.publicSans(),
+          style: GoogleFonts.publicSans(
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
           IconButton(
