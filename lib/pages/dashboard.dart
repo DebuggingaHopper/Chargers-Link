@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'majorRescources.dart';
 import 'shuttlecal.dart';
 import 'url.dart';
+import 'dashboard_exp.dart';
 
 class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -120,6 +121,19 @@ class Dashboard extends StatelessWidget {
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.help_outline),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return dashboardExplanation();
+                },
+              );
+            },
+          ),
+        ],
       ),
 
       // Here is where we construct our bottom bar as you see we have two buttons in between iof our calander button

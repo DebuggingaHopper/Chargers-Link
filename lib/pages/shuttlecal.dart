@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'shuttleq.dart';
 
 void main() {
   runApp(MyApp());
@@ -68,6 +69,19 @@ class ShuttleScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.help_outline),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return shuttleExplanation();
+                },
+              );
+            },
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -85,7 +99,7 @@ class ShuttleScreen extends StatelessWidget {
             child: Text(
               'Next Departure: $nextDeparture',
               style: GoogleFonts.publicSans(
-                fontSize: 22,
+                fontSize: 32,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -109,10 +123,12 @@ class ShuttleScreen extends StatelessWidget {
     final sortedSchedule = schedule.entries.toList()
       ..sort((a, b) => a.key.compareTo(b.key));
 
-    // Find the next departure time
+    // Find the next departure time and location
     for (final entry in sortedSchedule) {
       if (entry.key.compareTo(currentTime) > 0) {
-        return entry.value;
+        final nextDepartureTime = entry.key;
+        final nextDepartureLocation = entry.value;
+        return '$nextDepartureTime - $nextDepartureLocation';
       }
     }
 
