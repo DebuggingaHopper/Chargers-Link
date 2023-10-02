@@ -99,6 +99,13 @@ flutter:
     - assets/wireShark.png
     - assets/aerospace.png
     - assets/engineering.png
+    - assets/giant.png
+    - assets/ikea.png
+    - assets/shoppers.png
+    - assets/target.png
+    - assets/walmart.png
+    - assets/metro.png
+    - assets/regal.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

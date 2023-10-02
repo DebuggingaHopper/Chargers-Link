@@ -3,7 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'acalander.dart';
 import 'MapPage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'csRescources.dart';
+import 'majorRescources.dart';
+import 'shuttlecal.dart';
 import 'url.dart';
 
 class Dashboard extends StatelessWidget {
@@ -67,10 +68,18 @@ class Dashboard extends StatelessWidget {
         onTap: () {}, // Add your URL here or set it to null
       ),
       MenuItem(
-        // TODO: We should in the future have this lead to a different screen
-        title: 'Events',
-        icon: Icons.celebration_outlined,
-        onTap: () {}, // Add your URL here or set it to null
+        // ** This leads to the shuttle info screen which can be analyzed in the file shuttlecal.dart
+        title: 'Shuttle Info',
+        icon: Icons.bus_alert_outlined,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ShuttleScreen(), // Replace with your map page
+            ),
+          );
+        }, // Add your URL here or set it to null
       ),
       MenuItem(
         title: 'Majors',
