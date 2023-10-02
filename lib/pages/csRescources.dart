@@ -316,214 +316,126 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                       scrollDirection: Axis.horizontal,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Material(
-                            borderRadius: BorderRadius.circular(10.0),
-                            elevation: 0, // Add elevation for a raised effect
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = !isSectionsCSVisible;
-                                  issecurityVisible = false;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 1.0,
+                          padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isSectionsCSVisible = !isSectionsCSVisible;
+                                issecurityVisible = false;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/CS.png',
+                                  width: 35,
+                                  height: 35,
+                                ),
+                                SizedBox(
+                                    height:
+                                        8), // Adjust the spacing between the icon and text
+                                Text(
+                                  'Computer Science',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Container(
-                                    color: Color(0xFF0A5678),
-                                    child: SizedBox(
-                                      width: 170,
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(16.0),
-                                            child: Image.asset(
-                                              'assets/CS.png',
-                                              width: 35,
-                                              height: 35,
-                                            ),
-                                          ),
-                                          Text(
-                                            'Computer Science',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              ],
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Material(
-                            borderRadius: BorderRadius.circular(10.0),
-                            elevation: 0, // Add elevation for a raised effect
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = false;
-                                  issecurityVisible = !issecurityVisible;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 1.0,
+                          padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isSectionsCSVisible = false;
+                                issecurityVisible = !issecurityVisible;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/Cyber.png', // Replace with the actual path to your PNG image
+                                  width: 35,
+                                  height: 35,
+                                ),
+                                SizedBox(
+                                    height:
+                                        8), // Adjust the spacing between the icon and text
+                                Text(
+                                  'Cyber Security',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Container(
-                                    color: Color(0xFF0A5678),
-                                    child: SizedBox(
-                                      width: 170,
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(16.0),
-                                            child: Image.asset(
-                                              'assets/Cyber.png', // Replace with the actual path to your PNG image
-                                              width: 35,
-                                              height: 35,
-                                            ),
-                                          ),
-                                          Text(
-                                            'Cyber Security',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              ],
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Material(
-                            borderRadius: BorderRadius.circular(10.0),
-                            elevation: 0, // Add elevation for a raised effect
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = false;
-                                  issecurityVisible = false;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 1.0,
+                          padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isSectionsCSVisible = false;
+                                issecurityVisible = false;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/engineering.png',
+                                  width: 35,
+                                  height: 35,
+                                ),
+                                SizedBox(
+                                    height:
+                                        8), // Adjust the spacing between the icon and text
+                                Text(
+                                  'Electrical / Mechatronics',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Container(
-                                    color: Color(0xFF0A5678),
-                                    child: SizedBox(
-                                      width: 170,
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(16.0),
-                                            child: Image.asset(
-                                              'assets/aerospace.png',
-                                              width: 35,
-                                              height: 35,
-                                            ),
-                                          ),
-                                          Text(
-                                            'Aerospace / UAS',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              ],
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Material(
-                            borderRadius: BorderRadius.circular(10.0),
-                            elevation: 0, // Add elevation for a raised effect
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = false;
-                                  issecurityVisible = false;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 1.0,
+                          padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isSectionsCSVisible = false;
+                                issecurityVisible = false;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  'assets/aerospace.png',
+                                  width: 35,
+                                  height: 35,
+                                ),
+                                SizedBox(
+                                    height:
+                                        8), // Adjust the spacing between the icon and text
+                                Text(
+                                  'Aerospace / UAS',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Container(
-                                    color: Color(0xFF0A5678),
-                                    child: SizedBox(
-                                      width: 170,
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(16.0),
-                                            child: Image.asset(
-                                              'assets/engineering.png',
-                                              width: 35,
-                                              height: 35,
-                                            ),
-                                          ),
-                                          Text(
-                                            'Electrical / Mechatronics',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              ],
                             ),
                           ),
                         )
