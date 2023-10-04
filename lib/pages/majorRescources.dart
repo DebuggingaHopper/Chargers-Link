@@ -898,8 +898,10 @@ class _CyberSectionState extends State<CyberSection> {
   int totalItems = 0; // Total number of items in the feed
 
   Future<void> fetchRssFeed() async {
-    final response = await http.get(
-        Uri.parse("https://thehackernews.com/feeds/posts/default?alt=rss"));
+    final httpsUrl = Uri.parse(
+        'https://thehackernews.com/feeds/posts/default?alt=rss'); // Modify the URL to use HTTPS
+
+    final response = await http.get(httpsUrl);
 
     if (response.statusCode == 200) {
       final feed = RssFeed.parse(response.body);

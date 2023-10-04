@@ -18,7 +18,7 @@ List<Map<String, dynamic>> AcademicData = [
     "title":
         "Graduation applications due for Fall 2023 and Spring 2024 graduates",
     "start_date": "2023-08-28",
-    "end_date": "2024-08-28"
+    "end_date": "2023-12-31"
   },
   {
     "title": "Labor Day – University Closed (All classes meet asynchronously)",
