@@ -7,6 +7,8 @@ import 'majorRescources.dart';
 import 'shuttlecal.dart';
 import 'url.dart';
 import 'dashboard_exp.dart';
+import 'package:launch_review/launch_review.dart';
+import 'labs.dart';
 
 class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -58,15 +60,27 @@ class Dashboard extends StatelessWidget {
         },
       ),
       MenuItem(
-          // TODO: Ask Kyra about the code they used so all we would need to do is just copy the emergency informatyion and implement it
           title: 'Emergency Contacts',
           icon: Icons.emergency_outlined,
-          onTap: () {}),
+          onTap: () {
+            LaunchReview.launch(
+              androidAppId:
+                  'com.cutcom.apparmor.captechu&hl=en_US&gl=US', // Replace with your Android app ID
+              iOSAppId: '6447269281', // Replace with your iOS app ID
+            );
+          }),
       MenuItem(
         // TODO: We should in the future have this lead to a different screen to display the labs within the university
         title: 'Labs',
         icon: Icons.school_outlined,
-        onTap: () {}, // Add your URL here or set it to null
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LabPage(), // Replace with your map page
+            ),
+          );
+        }, // Add your URL here or set it to null
       ),
       MenuItem(
         // ** This leads to the shuttle info screen which can be analyzed in the file shuttlecal.dart
