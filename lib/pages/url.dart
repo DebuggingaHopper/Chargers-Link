@@ -48,6 +48,8 @@ final Uri megaByte = Uri.parse(
 final Uri virtualLibrary =
     Uri.parse('https://login.captechu.idm.oclc.org/menu');
 final Uri capDiscord = Uri.parse('https://discord.gg/EVaxGFbJuK');
+final Uri studentSuccess = Uri.parse('https://captechu.setmore.com/');
+final Uri capitolStore = Uri.parse('https://shopcapitoltech.merchorders.com/');
 
 // ** The following are the links for the Cyber Security resources
 final Uri Signal9 = Uri.parse('https://discord.gg/CpRUBHfuAd');

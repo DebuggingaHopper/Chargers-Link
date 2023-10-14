@@ -108,6 +108,24 @@ class Dashboard extends StatelessWidget {
           );
         },
       ),
+      MenuItem(
+        title: 'Tutoring',
+        icon: Icons.live_help_outlined,
+        onTap: () async {
+          if (!await launchUrl(studentSuccess)) {
+            throw Exception('Could not launch');
+          }
+        },
+      ),
+      MenuItem(
+        title: 'School Store',
+        icon: Icons.store_mall_directory_outlined,
+        onTap: () async {
+          if (!await launchUrl(capitolStore)) {
+            throw Exception('Could not launch');
+          }
+        },
+      ),
       // TODO: If we want to add more items within this list, please follow the previous entries to create them
       // Add other menu items without onTap callbacks if they don't need one.
     ];
