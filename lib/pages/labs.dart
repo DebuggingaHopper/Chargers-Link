@@ -14,12 +14,14 @@ class Lab {
 List<Lab> labList = [
   Lab(
     name: 'CS Lab',
-    imageUrl: 'assets/cslab.png',
+    imageUrl: 'assets/cs.jpg',
     shortBio: '''
 🕒 **LAB HOURS**
 - **Mondays & Wednesdays:** 10 AM - 1 PM
 - **Fridays:** 9 AM - 2 PM
 - **Saturdays:** 9 AM - 12 PM
+---
+**🏢 Located at MCI Hall**
 
 ---
 
@@ -42,12 +44,15 @@ List<Lab> labList = [
   ),
   Lab(
     name: 'Cyber Lab',
-    imageUrl: 'assets/Cyber.png',
+    imageUrl: 'assets/cyber.jpeg',
     shortBio: '''
 🕒 **LAB HOURS**
 - **Monday - Thursday:** 12 PM - 5 PM
+---
+**🏢 Located at McGowan Academic  Center**
 
 ---
+
 
 🖥️ Our **Cyber Lab** provides a unique opportunity for you to apply classroom theories and refine your skills. During your time here, you'll collaborate with peers to:
 
@@ -64,9 +69,11 @@ Additionally, students have the exciting opportunity to participate in 🏆 **Cy
     name: 'Esports Arena',
     imageUrl: 'assets/esports.jpg',
     shortBio: '''
-**🕒 ESports Arena Hours**
+**🕒 LAB HOURS**
 - **Monday - Friday:** 9 AM - 10 PM
 - **Saturday - Sunday:** 6 PM - 10 PM
+---
+**🏢 Located at Telecomm Hall**
 
 ---
 
@@ -85,6 +92,151 @@ Whether you're a casual gamer or a competitive esports enthusiast, our Esports A
 
 ''',
   ),
+  Lab(
+    name: 'Fusion Lab',
+    imageUrl: 'assets/fusion.jpg',
+    shortBio: '''
+ 🕒 **LAB HOURS**
+
+- **Monday - Friday:** 9 AM - 10 PM
+- **Saturday - Sunday:** 6 PM - 10 PM
+---
+**🏢 Located at McGowan Academic  Center**
+
+---
+
+**Welcome to Capitol Technology University's Innovation Hub - The Fusion Lab!**
+
+The Fusion Lab, launched in January 2014, is a creative haven run by AE (pun intended) for all students to unleash their creativity and bring their ideas to life. 🛠️
+
+**Why Choose Fusion Lab?**
+- **Hands-on Learning:** 🖨️ Work on class projects and fun builds. 
+- **Diverse Workshops:** 📻 Participate in student-focused workshops, including ham radio lessons. 
+- **Community:** 🌍 Connect with like-minded students through clubs, meetings, and pizza parties. 
+- **Student-Run:** 🌍 Embodying the AE Department's philosophy, projects are student-run and student-led. 
+
+Whether you're looking to create something extraordinary or utilize 3D printers for personal projects, Fusion Lab is your go-to space for innovation! 💡
+
+''',
+  ),
+  Lab(
+    name: 'Electronics Engineering Lab',
+    imageUrl: 'assets/engineering.jpg',
+    shortBio: '''
+
+🕒 **Lab Hours:**
+- **Monday - Thursday:** 8 AM - 9 PM
+- **Friday - Saturday:** 10 AM - 4 PM
+---
+**🏢 Located at MCI Hall**
+
+---
+ 🚀 **Hope you enjoy Capitol Technology Universities Engineering Lab!**
+
+** Expose yourself to various opprtunities within this lab**
+
+In this Laboratory not only will you be able to attend hands on courses but also allow yourself to have access to tools to teach yourself new skills! 🔧 
+
+⚙️  **Experience access to varying resources**
+
+You'll work with the various tools that will allow you to teach yourself skills like the following
+- 🔧 soldering
+- 🚀 understanding of shcmeatics and how to utilize them in your own projects
+- ⚙️ Access to Arduinosand other hardware
+- 🛠️ Troubleshoot varying hardware issues and acquire new skillsets
+
+''',
+  ),
+  Lab(
+    name: 'Space Flight Operations Training Center',
+    imageUrl: 'assets/space.jpg',
+    shortBio: '''
+
+🕒 **Lab Hours:**
+- **Monday - Friday:** 9 AM - 10 PM
+- **Saturday - Sunday:** 6 PM - 10 PM
+
+---
+**🏢 Located at McGowan Academic  Center**
+
+---
+ 🚀 **Welcome to Capitol Technology University's Space Flight Operations Training Center**
+
+** Explore the Universe, Train like an Astronaut**
+
+In this cutting-edge Space Flight Operations Training Center, you're not just a student; you're an astronaut in training! 🌌
+
+🛰️ **Experience Real Spacecraft Simulations**
+
+You'll work with the same tools that supported over 30 NASA missions. Our VirtualSat® spacecraft dynamic simulator is your launchpad to the cosmos. Get ready to:
+- 🔧 Operate spacecraft systems
+- 🚀 Perform thruster maneuvers
+- 📡 Monitor telemetry data
+- 🛠️ Troubleshoot and recover from anomalies
+
+**Launch Your Career**
+
+Our program equips you with the skills and knowledge to work on iconic NASA missions like Hubble, LRO, and JWST. 🛰️ Join us on a journey to the stars!
+''',
+  ),
+  Lab(
+    name: 'UAS Lab',
+    imageUrl: 'assets/uas.jpg',
+    shortBio: '''
+
+🕒 **Lab Hours:**
+- **Monday - Friday:** 9 AM - 10 PM
+- **Saturday - Sunday:** 6 PM - 10 PM
+
+---
+🏢 **Located at McGowan Academic  Center**
+
+---
+🤖 **Welcome to Capitol Technology University's Identity, Credentialing, and Access Management Lab**
+
+---
+
+Prepare to dive into the world of Unmanned Autonomous Systems (UAS) and enhance your skills in:
+
+- Physical Security
+- Information Assurance
+- Business Management
+- Acquisition Management
+---
+Our state-of-the-art facility is designed to provide you with hands-on experience, opening doors to exciting career opportunities. As one of the leading laboratories in the U.S. higher education system, we've garnered support from industry giants such as 3M, Paxton, and Quantum Secure.
+
+Explore the future of technology and security with us!
+''',
+  ),
+  Lab(
+    name: 'ICAM Lab',
+    imageUrl: 'assets/icam.jpg',
+    shortBio: '''
+
+🕒 **Lab Hours:**
+- **Monday - Friday:** 9 AM - 10 PM
+- **Saturday - Sunday:** 6 PM - 10 PM
+
+---
+🏢 **Located at Telecomm Hall**
+
+---
+ 🤖 **Welcome to Capitol Technology University's UAS Lab**
+
+**Prepare to learn more about  Unmanned Autonomous Systems**
+
+In this facility you will be exposed to various different droned and unmanned systems! 🔧 
+
+
+You'll work with the various drones and additonal unmanned systems to acquire further knowledge of these systems and work on various projects
+- 🔧 Operate various unmanned systes
+- 🛸 Allow yourself to have hands on experience with drones and unmanned systems
+- 📡 Monitor the progress of your unmanned system
+- 🛠️ Troubleshoot and work towards further understanding of these systems for real world application
+
+''',
+  ),
+
   //Add more lab entries as needed
 ];
 Color dashColor = Color(0xFF0A5678);

@@ -110,6 +110,14 @@ flutter:
     - assets/regal.png
     - assets/cslab.png
     - assets/esports.jpg
+    - assets/space.jpg
+    - assets/uas.jpg
+    - assets/fusion.jpg
+    - assets/cyber.jpeg
+    - assets/engineering.jpg
+    - assets/icam.jpg
+    - assets/cs.jpg
+    - assets/capitolpic.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

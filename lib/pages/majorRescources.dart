@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:capitol_app/pages/labs.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -273,6 +274,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
   int expandedSectionIndex = -1;
   bool isSectionsCSVisible = false; // Initially, the sections are hidden
   bool issecurityVisible = false;
+  bool isdash = true;
 
   @override
   Widget build(BuildContext context) {
@@ -300,234 +302,262 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header (ListView)
-          SingleChildScrollView(
-            child: Container(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 85,
-                    child: Container(
-                      child: ListView(
-                        // Set shrinkWrap to false
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 35.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = !isSectionsCSVisible;
-                                  issecurityVisible = false;
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/CS.png',
-                                    width: 35,
-                                    height: 35,
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          8), // Adjust the spacing between the icon and text
-                                  Text(
-                                    'Computer Science',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Header (ListView)
+            SingleChildScrollView(
+              child: Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 85,
+                      child: Container(
+                        child: ListView(
+                          // Set shrinkWrap to false
+                          shrinkWrap: false,
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 35.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isSectionsCSVisible = !isSectionsCSVisible;
+                                    issecurityVisible = false;
+
+                                    if (isSectionsCSVisible)
+                                      isdash = false;
+                                    else
+                                      isdash = true;
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/CS.png',
+                                      width: 35,
+                                      height: 35,
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                        height:
+                                            8), // Adjust the spacing between the icon and text
+                                    Text(
+                                      'Computer Science',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 35.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = false;
-                                  issecurityVisible = !issecurityVisible;
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/Cyber.png', // Replace with the actual path to your PNG image
-                                    width: 35,
-                                    height: 35,
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          8), // Adjust the spacing between the icon and text
-                                  Text(
-                                    'Cyber Security',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 35.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isSectionsCSVisible = false;
+                                    issecurityVisible = !issecurityVisible;
+                                    if (issecurityVisible)
+                                      isdash = false;
+                                    else
+                                      isdash = true;
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/Cyber.png', // Replace with the actual path to your PNG image
+                                      width: 35,
+                                      height: 35,
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                        height:
+                                            8), // Adjust the spacing between the icon and text
+                                    Text(
+                                      'Cyber Security',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 35.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = false;
-                                  issecurityVisible = false;
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/engineering.png',
-                                    width: 35,
-                                    height: 35,
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          8), // Adjust the spacing between the icon and text
-                                  Text(
-                                    'Electrical / Mechatronics',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 35.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isSectionsCSVisible = false;
+                                    issecurityVisible = false;
+                                    isdash = false;
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/engineering.png',
+                                      width: 35,
+                                      height: 35,
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                        height:
+                                            8), // Adjust the spacing between the icon and text
+                                    Text(
+                                      'Electrical / Mechatronics',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 35.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isSectionsCSVisible = false;
-                                  issecurityVisible = false;
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/aerospace.png',
-                                    width: 35,
-                                    height: 35,
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          8), // Adjust the spacing between the icon and text
-                                  Text(
-                                    'Aerospace / UAS',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 35.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isSectionsCSVisible = false;
+                                    issecurityVisible = false;
+                                    isdash = false;
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/aerospace.png',
+                                      width: 35,
+                                      height: 35,
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                        height:
+                                            8), // Adjust the spacing between the icon and text
+                                    Text(
+                                      'Aerospace / UAS',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          )
-          // Toggle Icon
+            )
+            // Toggle Icon
 
-          // Main content sections
-          ,
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
-          ),
-          if (isSectionsCSVisible)
-            Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  IDESection(
-                    isExpanded: expandedSectionIndex == 0,
-                    onTap: () {
-                      setState(() {
-                        expandedSectionIndex = 0;
-                      });
-                    },
-                  ),
-                  ProgrammingLanguagesSection(
-                    isExpanded: expandedSectionIndex == 1,
-                    onTap: () {
-                      setState(() {
-                        expandedSectionIndex = 1;
-                      });
-                    },
-                  ),
-                  OtherResourcesSection(
-                    isExpanded: expandedSectionIndex == 2,
-                    onTap: () {
-                      setState(() {
-                        expandedSectionIndex = 2;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ),
+            // Main content sections
+            ,
 
-          if (issecurityVisible)
-            Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  CyberSection(
-                    isExpanded: expandedSectionIndex == 0,
-                    onTap: () {
-                      setState(() {
-                        expandedSectionIndex = 0;
-                      });
-                    },
-                  ),
-                  cyberesourceSection(
-                    isExpanded: expandedSectionIndex == 1,
-                    onTap: () {
-                      setState(() {
-                        expandedSectionIndex = 1;
-                      });
-                    },
-                  ),
-                  cybereventsSection(
-                    isExpanded: expandedSectionIndex == 2,
-                    onTap: () {
-                      setState(() {
-                        expandedSectionIndex = 2;
-                      });
-                    },
-                  ),
-                ],
+            if (isSectionsCSVisible)
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    IDESection(
+                      isExpanded: expandedSectionIndex == 0,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 0;
+                        });
+                      },
+                    ),
+                    ProgrammingLanguagesSection(
+                      isExpanded: expandedSectionIndex == 1,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 1;
+                        });
+                      },
+                    ),
+                    OtherResourcesSection(
+                      isExpanded: expandedSectionIndex == 2,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 2;
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-        ],
+
+            if (issecurityVisible)
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    CyberSection(
+                      isExpanded: expandedSectionIndex == 0,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 0;
+                        });
+                      },
+                    ),
+                    cyberesourceSection(
+                      isExpanded: expandedSectionIndex == 1,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 1;
+                        });
+                      },
+                    ),
+                    cybereventsSection(
+                      isExpanded: expandedSectionIndex == 2,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 2;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            if (isdash)
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    dashSection(
+                      isExpanded: expandedSectionIndex == 0,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 0;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -807,9 +837,9 @@ class _IDESectionState extends State<IDESection> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(3.0),
                 child: Text(
-                  "Check what tools are avaliable for coding",
+                  "Check avaliable tools for coding",
                   style: GoogleFonts.publicSans(
                     fontSize: 17,
                     color: Colors.black87,
@@ -856,7 +886,6 @@ class _IDESectionState extends State<IDESection> {
                               width: 48.0,
                               height: 48.0,
                             ),
-                            const SizedBox(height: 10),
                             Text(
                               resourceItem.title,
                               style: GoogleFonts.publicSans(
@@ -1251,6 +1280,84 @@ class _cybereventsState extends State<cybereventsSection> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// ** This is where we create the IDE section initial card where within it are the links to the IDE's
+class dashSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  dashSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _dashState createState() => _dashState();
+}
+
+class _dashState extends State<dashSection> {
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double contentHeight = screenHeight * 0.7; // Adjust the factor as needed
+
+    return SingleChildScrollView(
+      child: Container(
+        color: dashColor, // Set a background color
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/capitolpic.jpg',
+              width: MediaQuery.of(context).size.width * 0.95,
+              height: MediaQuery.of(context).size.width * 0.8,
+            ),
+            SizedBox(height: 7), // Increased spacing
+            Padding(
+              padding: const EdgeInsets.all(1.0), // Increased padding
+              child: Column(
+                children: [
+                  Text(
+                    "Welcome to Capitol Technology University",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.publicSans(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  RichText(
+                    text: TextSpan(
+                      style: GoogleFonts.publicSans(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight
+                            .normal, // Use a normal weight for regular text
+                      ),
+                      children: [
+                        TextSpan(
+                          text:
+                              "Capitol Technology University is here to provide students with the necessary resources to succeed and excel. ",
+                        ),
+                        WidgetSpan(
+                          child: SizedBox(height: 10),
+                        ),
+                        TextSpan(
+                          text:
+                              "Explore the resources available for the most popular majors to expand your skillset!",
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20), // Increased spacing
+                  // Add icons, lists, or other elements as needed
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -70,7 +70,6 @@ class Dashboard extends StatelessWidget {
             );
           }),
       MenuItem(
-        // TODO: We should in the future have this lead to a different screen to display the labs within the university
         title: 'Labs',
         icon: Icons.school_outlined,
         onTap: () {
@@ -108,9 +107,8 @@ class Dashboard extends StatelessWidget {
             ),
           );
         },
-        // TODO: If we want to add more items within this list, please follow the previous entries to create them
       ),
-
+      // TODO: If we want to add more items within this list, please follow the previous entries to create them
       // Add other menu items without onTap callbacks if they don't need one.
     ];
     return Scaffold(
@@ -197,14 +195,18 @@ class Dashboard extends StatelessWidget {
       ),
 
       // The following is the calander button that when clicked will display the academic calendar
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(
-          context,
-          // What this is saying we shall route to the class of TableEventsExample which is located in acalander.dart
-          // We also establishg that it should be in the center
-          MaterialPageRoute(builder: (_) => TableEventsExample()),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.black, // Change the color to your desired color
         ),
-        child: Icon(Icons.calendar_today),
+        child: FloatingActionButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => TableEventsExample()),
+          ),
+          child: Icon(Icons.calendar_today),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
