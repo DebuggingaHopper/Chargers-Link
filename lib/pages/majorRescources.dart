@@ -243,7 +243,7 @@ final List<ResourceItem> cyberEvents = [
   ),
   ResourceItem(
     title: 'Dreamport events',
-    iconAsset: 'assets/seal.png',
+    iconAsset: 'assets/misi_nobackdrop.png',
     onTap: () async {
       if (!await launchUrl(misiLink)) {
         throw Exception('Could not launch');

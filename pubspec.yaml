@@ -118,6 +118,7 @@ flutter:
     - assets/icam.jpg
     - assets/cs.jpg
     - assets/capitolpic.jpg
+    - assets/misi_nobackdrop.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
