@@ -467,6 +467,10 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                     issecurityVisible = false;
                                     isairVisible = !isairVisible;
                                     isdash = false;
+                                    if (isairVisible)
+                                      isdash = false;
+                                    else
+                                      isdash = true;
                                   });
                                 },
                                 child: Column(
@@ -554,6 +558,22 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                       onTap: () {
                         setState(() {
                           expandedSectionIndex = 1;
+                        });
+                      },
+                    ),
+                    aepublishedSection(
+                      isExpanded: expandedSectionIndex == 2,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 2;
+                        });
+                      },
+                    ),
+                    aepublishednewsSection(
+                      isExpanded: expandedSectionIndex == 3,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 3;
                         });
                       },
                     ),
@@ -1486,6 +1506,7 @@ class _uasnewsSectionState extends State<uasnewsSection> {
       final feed = RssFeed.parse(response.body);
       setState(() {
         rssItems = feed.items;
+        print(rssItems);
         totalItems = rssItems?.length ?? 0;
       });
     } else {
@@ -1571,6 +1592,326 @@ class _uasnewsSectionState extends State<uasnewsSection> {
                                             80, // Set the desired width for the image
                                         height:
                                             80, // Set the desired height for the image
+                                      )
+                                    : Container(), // Empty container if URL is not available
+                                onTap: () async {
+                                  final url = Uri.parse(item.link ?? "");
+                                  if (!await launchUrl(url)) {
+                                    throw Exception('Could not launch $url');
+                                  }
+                                },
+                              );
+                            },
+                          ),
+                          if (visibleItemCount < totalItems)
+                            TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  // Increase the number of visible items by, e.g., 10, but don't exceed the total number of items
+                                  visibleItemCount = (visibleItemCount + 10)
+                                      .clamp(0, totalItems);
+                                });
+                              },
+                              child: Text('Load More',
+                                  style: GoogleFonts.publicSans(
+                                    fontSize: 16,
+                                    color: Colors.black87,
+                                  )),
+                            ),
+                        ],
+                      ),
+                    )
+                  : CircularProgressIndicator(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ** This is where we create the UAS News section, this where we provide an RSSFeed to the recent cyber news for students
+class aepublishedSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  aepublishedSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _aepublishedSectionState createState() => _aepublishedSectionState();
+}
+
+class _aepublishedSectionState extends State<aepublishedSection> {
+  bool isExpanded = false;
+  List<RssItem>? rssItems;
+  int visibleItemCount = 10; // Initial number of items to display
+  int totalItems = 0; // Total number of items in the feed
+
+  Future<void> fetchRssFeed() async {
+    final httpsUrl = Uri.parse(
+        'https://www.nasa.gov/feeds/iotd-feed/'); // Modify the URL to use HTTPS
+
+    final response = await http.get(httpsUrl);
+
+    if (response.statusCode == 200) {
+      final feed = RssFeed.parse(response.body);
+      setState(() {
+        rssItems = feed.items;
+        print(rssItems);
+        totalItems = rssItems?.length ?? 0;
+        print(totalItems);
+      });
+    } else {
+      throw Exception('Failed to load RSS feed');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+          if (isExpanded && rssItems == null) {
+            // Fetch RSS feed when expanding for the first time
+            fetchRssFeed();
+          }
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            const SizedBox(height: 10),
+            Center(
+              child: Text(
+                "NASA Picture of the day!",
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  "Learn about NASA!",
+                  style: GoogleFonts.publicSans(
+                    fontSize: 16,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+            ),
+            Visibility(
+              visible: isExpanded,
+              child: rssItems != null
+                  ? Container(
+                      height: 300, // Set a fixed or maximum height
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: visibleItemCount,
+                            itemBuilder: (context, index) {
+                              final item = rssItems![index];
+
+                              return ListTile(
+                                title: Text(item.title ?? ""),
+                                subtitle: Text(item.pubDate?.toString() ?? ""),
+                                leading: item.enclosure?.url != null
+                                    ? Image.network(
+                                        item.enclosure!.url ??
+                                            '', // Provide a default empty string
+                                        fit: BoxFit
+                                            .cover, // Adjust this as needed
+                                        width:
+                                            80, // Set the desired width for the image
+                                        height:
+                                            80, // Set the desired height for the image
+                                      )
+                                    : Container(), // Empty container if URL is not available
+                                onTap: () async {
+                                  final url = Uri.parse(item.link ?? "");
+                                  if (!await launchUrl(url)) {
+                                    throw Exception('Could not launch $url');
+                                  }
+                                },
+                              );
+                            },
+                          ),
+                          if (visibleItemCount < totalItems)
+                            TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  // Increase the number of visible items by, e.g., 10, but don't exceed the total number of items
+                                  visibleItemCount = (visibleItemCount + 10)
+                                      .clamp(0, totalItems);
+                                });
+                              },
+                              child: Text('Load More',
+                                  style: GoogleFonts.publicSans(
+                                    fontSize: 16,
+                                    color: Colors.black87,
+                                  )),
+                            ),
+                        ],
+                      ),
+                    )
+                  : CircularProgressIndicator(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MyRssItem {
+  final String? title;
+  final String? link;
+  final String? description;
+  final String? content;
+  final DateTime? pubDate;
+
+  MyRssItem(
+      {required this.title,
+      required this.link,
+      required this.description,
+      required this.content,
+      required this.pubDate});
+}
+
+// ** This is where we create the UAS published News section, this where we provide an RSSFeed to the recent cyber news for students
+class aepublishednewsSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  aepublishednewsSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _aepublishednewsSectionState createState() => _aepublishednewsSectionState();
+}
+
+class _aepublishednewsSectionState extends State<aepublishednewsSection> {
+  bool isExpanded = false;
+  List<MyRssItem>? rssItems;
+  int visibleItemCount = 10; // Initial number of items to display
+  int totalItems = 0; // Total number of items in the feed
+
+  Future<void> fetchRssFeed() async {
+    final httpsUrl = Uri.parse('https://www.nasa.gov/news-release/feed/');
+
+    final response = await http.get(httpsUrl);
+
+    if (response.statusCode == 200) {
+      final feed = RssFeed.parse(response.body);
+
+      setState(() {
+        rssItems = feed.items?.map((item) {
+          return MyRssItem(
+            title: item.title,
+            link: item.link,
+            description: item.description,
+            content: item.content?.value,
+            pubDate: item.pubDate,
+          );
+        }).toList();
+        print(rssItems);
+        totalItems = rssItems!.length;
+        print(totalItems);
+      });
+    } else {
+      throw Exception('Failed to load RSS feed');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+          if (isExpanded && rssItems == null) {
+            // Fetch RSS feed when expanding for the first time
+            fetchRssFeed();
+          }
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            const SizedBox(height: 10),
+            Center(
+              child: Text(
+                "NASA Published Content!",
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  "See what's currently documented!",
+                  style: GoogleFonts.publicSans(
+                    fontSize: 16,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+            ),
+            Visibility(
+              visible: isExpanded,
+              child: rssItems != null
+                  ? Container(
+                      height: 300, // Set a fixed or maximum height
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: visibleItemCount,
+                            itemBuilder: (context, index) {
+                              final item = rssItems![index];
+
+                              // Extracted information
+                              final title = item.title ?? "";
+                              final pubDate = item.pubDate?.toString() ?? "";
+                              final description = item.description ?? "";
+                              final document = parse(item.content ?? "");
+                              final imgTags =
+                                  document.getElementsByTagName('img');
+                              String? imageUrl;
+
+                              if (imgTags.isNotEmpty) {
+                                imageUrl = imgTags[0].attributes['src'];
+                              }
+
+                              return ListTile(
+                                title: Text(title),
+                                subtitle: Text(pubDate),
+                                leading: imageUrl != null
+                                    ? Image.network(
+                                        imageUrl,
+                                        fit: BoxFit.cover,
+                                        width: 80,
+                                        height: 80,
                                       )
                                     : Container(), // Empty container if URL is not available
                                 onTap: () async {
