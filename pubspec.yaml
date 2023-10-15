@@ -44,6 +44,7 @@ dependencies:
   html: ^0.15.4
   launch_review: ^3.0.1
   flutter_markdown: ^0.6.18
+  permission_handler: ^11.0.1
 
 dev_dependencies:
   flutter_test:
@@ -119,6 +120,8 @@ flutter:
     - assets/cs.jpg
     - assets/capitolpic.jpg
     - assets/misi_nobackdrop.png
+    - assets/part107.png
+    - assets/study.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -8,6 +8,7 @@ import 'major_exp.dart';
 import 'url.dart';
 import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
+import 'package:html/parser.dart' show parse;
 
 final List<ResourceItem> ideItems = [
   ResourceItem(
@@ -263,6 +264,29 @@ final List<ResourceItem> cyberEvents = [
   ),
 ];
 
+final List<ResourceItem> uasResource = [
+  ResourceItem(
+    title: 'Part 107 Training Centers',
+    iconAsset: 'assets/part107.png',
+    onTap: () async {
+      if (!await launchUrl(testingArea)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'Part 107 Study Guide',
+    iconAsset: 'assets/study.png',
+    onTap: () async {
+      if (!await launchUrl(testGuide)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+];
+
 class CompSciResourcesPage extends StatefulWidget {
   Color dashColor = Color(0xFF0A5678);
 
@@ -274,6 +298,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
   int expandedSectionIndex = -1;
   bool isSectionsCSVisible = false; // Initially, the sections are hidden
   bool issecurityVisible = false;
+  bool isairVisible = false;
   bool isdash = true;
 
   @override
@@ -331,6 +356,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                   setState(() {
                                     isSectionsCSVisible = !isSectionsCSVisible;
                                     issecurityVisible = false;
+                                    isairVisible = false;
 
                                     if (isSectionsCSVisible)
                                       isdash = false;
@@ -368,6 +394,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                   setState(() {
                                     isSectionsCSVisible = false;
                                     issecurityVisible = !issecurityVisible;
+                                    isairVisible = false;
                                     if (issecurityVisible)
                                       isdash = false;
                                     else
@@ -404,6 +431,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                   setState(() {
                                     isSectionsCSVisible = false;
                                     issecurityVisible = false;
+                                    isairVisible = false;
                                     isdash = false;
                                   });
                                 },
@@ -437,6 +465,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                   setState(() {
                                     isSectionsCSVisible = false;
                                     issecurityVisible = false;
+                                    isairVisible = !isairVisible;
                                     isdash = false;
                                   });
                                 },
@@ -507,6 +536,30 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                   ],
                 ),
               ),
+            if (isairVisible)
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    uasnewsSection(
+                      isExpanded: expandedSectionIndex == 0,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 0;
+                        });
+                      },
+                    ),
+                    objecteventsSection(
+                      isExpanded: expandedSectionIndex == 1,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 1;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
 
             if (issecurityVisible)
               Expanded(
@@ -540,6 +593,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                   ],
                 ),
               ),
+
             if (isdash)
               Expanded(
                 child: ListView(
@@ -1286,7 +1340,276 @@ class _cybereventsState extends State<cybereventsSection> {
   }
 }
 
-// ** This is where we create the IDE section initial card where within it are the links to the IDE's
+// ** This is where we create the UAS section initial card where within it are the links to the IDE's
+class objecteventsSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  objecteventsSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _objecteventsSectionState createState() => _objecteventsSectionState();
+}
+
+class _objecteventsSectionState extends State<objecteventsSection> {
+  bool isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Container(
+          height: isExpanded
+              ? null
+              : 80, // Set the desired fixed height for the card when not expanded
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                "UAS Certificate Resources",
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Get professionally ahead with Drones!",
+                  style: GoogleFonts.publicSans(
+                    fontSize: 17,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: isExpanded,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  itemCount: uasResource.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final resourceItem = uasResource[index];
+                    // Define different image sizes for the first item (BsidesCharm) and the rest
+                    double imageWidth = index == 0 ? 80.0 : 48.0;
+                    double imageHeight = index == 0 ? 80.0 : 48.0;
+
+                    return GestureDetector(
+                      onTap: () {
+                        if (resourceItem.onTap != null) {
+                          resourceItem.onTap!();
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Container();
+                              },
+                            ),
+                          );
+                        }
+                      },
+                      child: Card(
+                        elevation: 1,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide.none,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              resourceItem.iconAsset,
+                              width: imageWidth,
+                              height: imageHeight,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              resourceItem.title,
+                              style: GoogleFonts.publicSans(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ** This is where we create the UAS News section, this where we provide an RSSFeed to the recent cyber news for students
+class uasnewsSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  uasnewsSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _uasnewsSectionState createState() => _uasnewsSectionState();
+}
+
+class _uasnewsSectionState extends State<uasnewsSection> {
+  bool isExpanded = false;
+  List<RssItem>? rssItems;
+  int visibleItemCount = 10; // Initial number of items to display
+  int totalItems = 0; // Total number of items in the feed
+
+  Future<void> fetchRssFeed() async {
+    final httpsUrl =
+        Uri.parse('https://dronedj.com/feed/'); // Modify the URL to use HTTPS
+
+    final response = await http.get(httpsUrl);
+
+    if (response.statusCode == 200) {
+      final feed = RssFeed.parse(response.body);
+      setState(() {
+        rssItems = feed.items;
+        totalItems = rssItems?.length ?? 0;
+      });
+    } else {
+      throw Exception('Failed to load RSS feed');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+          if (isExpanded && rssItems == null) {
+            // Fetch RSS feed when expanding for the first time
+            fetchRssFeed();
+          }
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            const SizedBox(height: 10),
+            Center(
+              child: Text(
+                "Drone News",
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  "Learn about Drones!",
+                  style: GoogleFonts.publicSans(
+                    fontSize: 16,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+            ),
+            Visibility(
+              visible: isExpanded,
+              child: rssItems != null
+                  ? Container(
+                      height: 300, // Set a fixed or maximum height
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: visibleItemCount,
+                            itemBuilder: (context, index) {
+                              final item = rssItems![index];
+                              final descriptionHtml = item.description ?? "";
+                              final document = parse(descriptionHtml);
+                              final imgTags =
+                                  document.getElementsByTagName('img');
+                              String? imageUrl;
+
+                              if (imgTags.isNotEmpty) {
+                                imageUrl = imgTags[0].attributes['src'];
+                              }
+                              return ListTile(
+                                title: Text(item.title ?? ""),
+                                subtitle: Text(item.pubDate?.toString() ?? ""),
+                                leading: imageUrl != null
+                                    ? Image.network(
+                                        imageUrl ??
+                                            '', // Provide a default empty string
+                                        fit: BoxFit
+                                            .cover, // Adjust this as needed
+                                        width:
+                                            80, // Set the desired width for the image
+                                        height:
+                                            80, // Set the desired height for the image
+                                      )
+                                    : Container(), // Empty container if URL is not available
+                                onTap: () async {
+                                  final url = Uri.parse(item.link ?? "");
+                                  if (!await launchUrl(url)) {
+                                    throw Exception('Could not launch $url');
+                                  }
+                                },
+                              );
+                            },
+                          ),
+                          if (visibleItemCount < totalItems)
+                            TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  // Increase the number of visible items by, e.g., 10, but don't exceed the total number of items
+                                  visibleItemCount = (visibleItemCount + 10)
+                                      .clamp(0, totalItems);
+                                });
+                              },
+                              child: Text('Load More',
+                                  style: GoogleFonts.publicSans(
+                                    fontSize: 16,
+                                    color: Colors.black87,
+                                  )),
+                            ),
+                        ],
+                      ),
+                    )
+                  : CircularProgressIndicator(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ** This is where we create the original Dashboard section initial card where within it are the links to the IDE's
 class dashSection extends StatefulWidget {
   final VoidCallback onTap;
   final bool isExpanded;
@@ -1300,8 +1623,7 @@ class dashSection extends StatefulWidget {
 class _dashState extends State<dashSection> {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double contentHeight = screenHeight * 0.7; // Adjust the factor as needed
+// Adjust the factor as needed
 
     return SingleChildScrollView(
       child: Container(

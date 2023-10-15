@@ -55,6 +55,16 @@ final Uri capitolStore = Uri.parse('https://shopcapitoltech.merchorders.com/');
 final Uri Signal9 = Uri.parse('https://discord.gg/CpRUBHfuAd');
 final Uri wiresharkURL = Uri.parse('https://www.wireshark.org/download.html');
 
+// ** The following is a list of links for the UAS Resources
+final Uri testingArea =
+    Uri.parse('https://www.federaldroneregistration.com/part-107-test-centers');
+final Uri testGuide = Uri.parse(
+    'https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/remote_pilot_study_guide.pdf');
+
+// ** The following is a list of links for the AE resources
+final Uri nasaHandbook = Uri.parse(
+    'https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf');
+
 // ** The following are the links for Cyber Events
 final Uri bsidesLink = Uri.parse('https://bsidescharm.org/#about');
 final Uri misiLink = Uri.parse('https://misi.tech/technical-engagements/');
