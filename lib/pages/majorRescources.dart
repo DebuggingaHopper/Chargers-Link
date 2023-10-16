@@ -199,6 +199,46 @@ final List<ResourceItem> otherItems = [
   // Add more other items as needed
 ];
 
+final List<ResourceItem> machItems = [
+  ResourceItem(
+    title: 'Virtual Box',
+    iconAsset: 'assets/virtualbox-logo.png',
+    onTap: () async {
+      if (!await launchUrl(vboxUrl)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'VMware',
+    iconAsset: 'assets/vmware.png',
+    onTap: () async {
+      if (!await launchUrl(vmUrl)) {
+        throw Exception('Could not launch');
+      }
+    },
+  ),
+  ResourceItem(
+    title: 'Azure',
+    iconAsset: 'assets/azure.png',
+    onTap: () async {
+      if (!await launchUrl(azureUrl)) {
+        throw Exception('Could not launch');
+      }
+    },
+  ),
+  ResourceItem(
+    title: 'AWS',
+    iconAsset: 'assets/aws.png',
+    onTap: () async {
+      if (!await launchUrl(awsUrl)) {
+        throw Exception('Could not launch');
+      }
+    },
+  ),
+  // Add more other items as needed
+];
 final List<ResourceItem> cyberItems = [
   ResourceItem(
     title: 'Signal 9 Team',
@@ -667,6 +707,14 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    machineSection(
+                      isExpanded: expandedSectionIndex == 3,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 3;
+                        });
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -1078,6 +1126,120 @@ class _IDESectionState extends State<IDESection> {
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     final resourceItem = ideItems[index];
+                    return GestureDetector(
+                      onTap: () {
+                        if (resourceItem.onTap != null) {
+                          resourceItem.onTap!();
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Container();
+                              },
+                            ),
+                          );
+                        }
+                      },
+                      child: Card(
+                        elevation: 1,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide.none,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              resourceItem.iconAsset,
+                              width: 48.0,
+                              height: 48.0,
+                            ),
+                            Text(
+                              resourceItem.title,
+                              style: GoogleFonts.publicSans(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ** This is where we create the virtual machine / cloud services section
+class machineSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  machineSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _machineSectionState createState() => _machineSectionState();
+}
+
+class _machineSectionState extends State<machineSection> {
+  bool isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Container(
+          height: isExpanded
+              ? null
+              : 80, // Set the desired fixed height for the card when not expanded
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                "Virtual Machine / Cloud",
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Text(
+                  "Check for virtualization and cloud services",
+                  style: GoogleFonts.publicSans(
+                    fontSize: 17,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: isExpanded,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  itemCount: machItems.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final resourceItem = machItems[index];
                     return GestureDetector(
                       onTap: () {
                         if (resourceItem.onTap != null) {

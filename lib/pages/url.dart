@@ -37,6 +37,12 @@ final Uri vimDownload = Uri.parse('https://www.vim.org/download.php');
 final Uri notepadplusDownload =
     Uri.parse('https://notepad-plus-plus.org/downloads/');
 
+//* The following are the urls utilized for the virtual machine / cloud services section
+final Uri azureUrl = Uri.parse('https://azure.microsoft.com/en-us/');
+final Uri awsUrl = Uri.parse('https://aws.amazon.com/');
+final Uri vmUrl = Uri.parse('https://www.vmware.com/');
+final Uri vboxUrl = Uri.parse('https://www.virtualbox.org/');
+
 /*
 * * The Following URLS are use for the original dashboard such as myCapitol, Advising, Megabyte, virtual Library, and the capitol discord
 */

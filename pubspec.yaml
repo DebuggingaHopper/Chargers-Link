@@ -133,6 +133,10 @@ flutter:
     - assets/onshape.png
     - assets/linux.png
     - assets/hackthebox.jpg
+    - assets/azure.png
+    - assets/aws.png
+    - assets/vmware.png
+    - assets/virtualbox-logo.png
 
 
   # The following line ensures that the Material Icons font is
