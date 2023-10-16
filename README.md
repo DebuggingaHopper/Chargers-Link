@@ -1,6 +1,10 @@
-# capitol_app
+# Chargers Link
 
-A new Flutter project.
+Chargers Link is the desired Mobile Application that centralizes information within one location for the student community at Capitol Technology University!
+
+## Who is the developer?
+
+The developer of Chargers Link is Nelson Josue Alvarez a graduating senior at Capitol Technology University who seeks to create a mobile application based on student needs. This application however was built based on feedback provided by the students at the University including alumni which have allowed this project to be developed based on what is desired to improve quality of life.
 
 ## Getting Started
 
