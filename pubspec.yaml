@@ -131,6 +131,9 @@ flutter:
     - assets/sketchup.png
     - assets/ultimaker.png
     - assets/onshape.png
+    - assets/linux.png
+    - assets/hackthebox.jpg
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

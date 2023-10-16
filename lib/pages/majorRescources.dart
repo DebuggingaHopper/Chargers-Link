@@ -219,6 +219,24 @@ final List<ResourceItem> cyberItems = [
       }
     },
   ),
+  ResourceItem(
+    title: 'Linux Downloads',
+    iconAsset: 'assets/linux.png',
+    onTap: () async {
+      if (!await launchUrl(linuxDistro)) {
+        throw Exception('Could not launch');
+      }
+    },
+  ),
+  ResourceItem(
+    title: 'Hack The Box',
+    iconAsset: 'assets/hackthebox.jpg',
+    onTap: () async {
+      if (!await launchUrl(hackBox)) {
+        throw Exception('Could not launch');
+      }
+    },
+  ),
 ];
 
 final List<ResourceItem> cyberEvents = [

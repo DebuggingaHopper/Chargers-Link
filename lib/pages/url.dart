@@ -54,6 +54,8 @@ final Uri capitolStore = Uri.parse('https://shopcapitoltech.merchorders.com/');
 // ** The following are the links for the Cyber Security resources
 final Uri Signal9 = Uri.parse('https://discord.gg/CpRUBHfuAd');
 final Uri wiresharkURL = Uri.parse('https://www.wireshark.org/download.html');
+final Uri linuxDistro = Uri.parse('https://www.linux.org/pages/download/');
+final Uri hackBox = Uri.parse('https://www.hackthebox.com/');
 
 // ** The following is a list of links for the UAS Resources
 final Uri testingArea =
