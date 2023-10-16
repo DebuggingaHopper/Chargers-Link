@@ -6,6 +6,10 @@ Chargers Link is the desired Mobile Application that centralizes information wit
 
 The developer of Chargers Link is Nelson Josue Alvarez a graduating senior at Capitol Technology University who seeks to create a mobile application based on student needs. This application however was built based on feedback provided by the students at the University including alumni which have allowed this project to be developed based on what is desired to improve quality of life.
 
+## How to understand the code?
+
+To understand the code, we highly recommend that you go within the lib folder and see the resources there to understand how the application was created.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
