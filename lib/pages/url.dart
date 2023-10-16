@@ -64,6 +64,7 @@ final Uri testGuide = Uri.parse(
 // ** The following is a list of links for the AE resources
 final Uri nasaHandbook = Uri.parse(
     'https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf');
+final Uri engineeringForum = Uri.parse('https://www.eng-tips.com/');
 
 // ** The following are the links for Cyber Events
 final Uri bsidesLink = Uri.parse('https://bsidescharm.org/#about');

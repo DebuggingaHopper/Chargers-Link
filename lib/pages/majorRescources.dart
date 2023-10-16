@@ -285,6 +285,26 @@ final List<ResourceItem> uasResource = [
       // Handle the action when GitHub card is tapped
     },
   ),
+  ResourceItem(
+    title: 'NASA Handbook',
+    iconAsset: 'assets/nasa.png',
+    onTap: () async {
+      if (!await launchUrl(nasaHandbook)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'Engineering Forum',
+    iconAsset: 'assets/forum.png',
+    onTap: () async {
+      if (!await launchUrl(engineeringForum)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
 ];
 
 class CompSciResourcesPage extends StatefulWidget {
@@ -1395,7 +1415,7 @@ class _objecteventsSectionState extends State<objecteventsSection> {
             children: [
               const SizedBox(height: 10),
               Text(
-                "UAS Certificate Resources",
+                "UAS & AE Resources",
                 style: GoogleFonts.publicSans(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -1404,7 +1424,7 @@ class _objecteventsSectionState extends State<objecteventsSection> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Get professionally ahead with Drones!",
+                  "Get professionally ahead!",
                   style: GoogleFonts.publicSans(
                     fontSize: 17,
                     color: Colors.black87,
@@ -1506,7 +1526,6 @@ class _uasnewsSectionState extends State<uasnewsSection> {
       final feed = RssFeed.parse(response.body);
       setState(() {
         rssItems = feed.items;
-        print(rssItems);
         totalItems = rssItems?.length ?? 0;
       });
     } else {
@@ -1630,7 +1649,7 @@ class _uasnewsSectionState extends State<uasnewsSection> {
   }
 }
 
-// ** This is where we create the UAS News section, this where we provide an RSSFeed to the recent cyber news for students
+// ** This is where we create the NASA Picture of the day section
 class aepublishedSection extends StatefulWidget {
   final VoidCallback onTap;
   final bool isExpanded;
@@ -1657,9 +1676,7 @@ class _aepublishedSectionState extends State<aepublishedSection> {
       final feed = RssFeed.parse(response.body);
       setState(() {
         rssItems = feed.items;
-        print(rssItems);
         totalItems = rssItems?.length ?? 0;
-        print(totalItems);
       });
     } else {
       throw Exception('Failed to load RSS feed');
@@ -1824,9 +1841,8 @@ class _aepublishednewsSectionState extends State<aepublishednewsSection> {
             pubDate: item.pubDate,
           );
         }).toList();
-        print(rssItems);
+
         totalItems = rssItems!.length;
-        print(totalItems);
       });
     } else {
       throw Exception('Failed to load RSS feed');
