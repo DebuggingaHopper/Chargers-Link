@@ -64,9 +64,9 @@ It establishes the colors of the application and how it will show the user.
 
 ## Fall.dart
 
-Fall.dart is the main file that holds the academic calander information, this is the only file you would want to edit if you need to update to the academic calander. 
+Fall.dart is the main file that holds the academic calendar information, this is the only file you would want to edit if you need to update the academic calendar. 
 
-**PLEASE REMEMBER** that this is the only file that needs to be edited if you want toe dit what the academic calander ifnromation displays, not visually but just the pure data. Tjhe following is an example of the first lines of the file
+**PLEASE REMEMBER** that this is the only file that needs to be edited if you want to edit what the academic calendar information displays, not visually but just the pure data. The following is an example of the first lines of the file
 
 ```
 List<Map<String, dynamic>> AcademicData = [
@@ -86,7 +86,7 @@ List<Map<String, dynamic>> AcademicData = [
     "end_date": "2023-08-28"
   },
 ```
-All you need when editing the data is just chnage the start date and end date, if possible we can aim to also include the calander from the MyCapitol Website however that is later down the line. Simply enough Fall.dart is your main source of information in regards to the academic calander.
+All you need when editing the data is just to change the start date and end date, if possible we can aim to also include the calendar from the MyCapitol Website however that is later down the line. Simply enough Fall.dart is your main source of information in regards to the academic calendar.
 
 ## utils.dart
 
