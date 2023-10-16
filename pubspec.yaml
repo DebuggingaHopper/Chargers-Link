@@ -124,6 +124,12 @@ flutter:
     - assets/study.png
     - assets/nasa.png
     - assets/forum.png
+    - assets/kicad.png
+    - assets/ltSpice.jpg
+    - assets/McMaster-Carr.png
+    - assets/orcad.png
+    - assets/sketchup.png
+    - assets/ultimaker.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

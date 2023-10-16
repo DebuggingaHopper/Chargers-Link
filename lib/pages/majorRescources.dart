@@ -307,6 +307,69 @@ final List<ResourceItem> uasResource = [
   ),
 ];
 
+final List<ResourceItem> engiResource = [
+  ResourceItem(
+    title: 'McMaster-Carr',
+    iconAsset: 'assets/McMaster-Carr.png',
+    onTap: () async {
+      if (!await launchUrl(mcMaster)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'LtSpice',
+    iconAsset: 'assets/ltSpice.jpg',
+    onTap: () async {
+      if (!await launchUrl(ltSpice)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'PSpice',
+    iconAsset: 'assets/orcad.png',
+    onTap: () async {
+      if (!await launchUrl(pSpice)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'Sketchup',
+    iconAsset: 'assets/sketchup.png',
+    onTap: () async {
+      if (!await launchUrl(sketchUp)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'Ultimaker',
+    iconAsset: 'assets/ultimaker.png',
+    onTap: () async {
+      if (!await launchUrl(ultiMaker)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'KiCad',
+    iconAsset: 'assets/kicad.png',
+    onTap: () async {
+      if (!await launchUrl(ultiMaker)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+];
+
 class CompSciResourcesPage extends StatefulWidget {
   Color dashColor = Color(0xFF0A5678);
 
@@ -319,6 +382,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
   bool isSectionsCSVisible = false; // Initially, the sections are hidden
   bool issecurityVisible = false;
   bool isairVisible = false;
+  bool isEng = false;
   bool isdash = true;
 
   @override
@@ -377,6 +441,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                     isSectionsCSVisible = !isSectionsCSVisible;
                                     issecurityVisible = false;
                                     isairVisible = false;
+                                    isEng = false;
 
                                     if (isSectionsCSVisible)
                                       isdash = false;
@@ -415,6 +480,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                     isSectionsCSVisible = false;
                                     issecurityVisible = !issecurityVisible;
                                     isairVisible = false;
+                                    isEng = false;
                                     if (issecurityVisible)
                                       isdash = false;
                                     else
@@ -452,7 +518,12 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                     isSectionsCSVisible = false;
                                     issecurityVisible = false;
                                     isairVisible = false;
+                                    isEng = !isEng;
                                     isdash = false;
+                                    if (isEng)
+                                      isdash = false;
+                                    else
+                                      isdash = true;
                                   });
                                 },
                                 child: Column(
@@ -487,6 +558,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                     issecurityVisible = false;
                                     isairVisible = !isairVisible;
                                     isdash = false;
+                                    isEng = false;
                                     if (isairVisible)
                                       isdash = false;
                                     else
@@ -594,6 +666,23 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                       onTap: () {
                         setState(() {
                           expandedSectionIndex = 3;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+            if (isEng)
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    engiSection(
+                      isExpanded: expandedSectionIndex == 0,
+                      onTap: () {
+                        setState(() {
+                          expandedSectionIndex = 0;
                         });
                       },
                     ),
@@ -1960,6 +2049,125 @@ class _aepublishednewsSectionState extends State<aepublishednewsSection> {
                   : CircularProgressIndicator(),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+// ** This is where we create the mechatronics & electrical initial card where within it are the links to helpful resources
+class engiSection extends StatefulWidget {
+  final VoidCallback onTap;
+  final bool isExpanded;
+
+  engiSection({required this.isExpanded, required this.onTap});
+
+  @override
+  _engiState createState() => _engiState();
+}
+
+class _engiState extends State<engiSection> {
+  bool isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+        });
+      },
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Container(
+          height: isExpanded
+              ? null
+              : 80, // Set the desired fixed height for the card when not expanded
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                "Resources",
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Enjoy catalouges & 3D software!",
+                  style: GoogleFonts.publicSans(
+                    fontSize: 17,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: isExpanded,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  itemCount: engiResource.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final resourceItem = engiResource[index];
+                    // Define different image sizes for the first item (BsidesCharm) and the rest
+                    double imageWidth = index == 0 ? 80.0 : 48.0;
+                    double imageHeight = index == 0 ? 80.0 : 48.0;
+
+                    return GestureDetector(
+                      onTap: () {
+                        if (resourceItem.onTap != null) {
+                          resourceItem.onTap!();
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Container();
+                              },
+                            ),
+                          );
+                        }
+                      },
+                      child: Card(
+                        elevation: 1,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide.none,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              resourceItem.iconAsset,
+                              width: imageWidth,
+                              height: imageHeight,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              resourceItem.title,
+                              style: GoogleFonts.publicSans(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

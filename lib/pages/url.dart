@@ -66,6 +66,16 @@ final Uri nasaHandbook = Uri.parse(
     'https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf');
 final Uri engineeringForum = Uri.parse('https://www.eng-tips.com/');
 
+// ** The following is a list of links for electrical & mechatronics
+final Uri mcMaster = Uri.parse('https://www.mcmaster.com/');
+final Uri ltSpice = Uri.parse(
+    'https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html');
+final Uri pSpice = Uri.parse('https://www.pspice.com/');
+final Uri kiCad = Uri.parse('https://www.kicad.org/');
+final Uri sketchUp = Uri.parse('https://www.sketchup.com/');
+final Uri ultiMaker =
+    Uri.parse('https://ultimaker.com/software/ultimaker-cura/');
+
 // ** The following are the links for Cyber Events
 final Uri bsidesLink = Uri.parse('https://bsidescharm.org/#about');
 final Uri misiLink = Uri.parse('https://misi.tech/technical-engagements/');
