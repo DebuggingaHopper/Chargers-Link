@@ -75,6 +75,7 @@ final Uri kiCad = Uri.parse('https://www.kicad.org/');
 final Uri sketchUp = Uri.parse('https://www.sketchup.com/');
 final Uri ultiMaker =
     Uri.parse('https://ultimaker.com/software/ultimaker-cura/');
+final Uri onShape = Uri.parse('https://www.onshape.com/en/');
 
 // ** The following are the links for Cyber Events
 final Uri bsidesLink = Uri.parse('https://bsidescharm.org/#about');

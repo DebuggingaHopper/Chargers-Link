@@ -349,7 +349,7 @@ final List<ResourceItem> engiResource = [
     },
   ),
   ResourceItem(
-    title: 'Ultimaker',
+    title: 'Ultimaker Cura',
     iconAsset: 'assets/ultimaker.png',
     onTap: () async {
       if (!await launchUrl(ultiMaker)) {
@@ -363,6 +363,26 @@ final List<ResourceItem> engiResource = [
     iconAsset: 'assets/kicad.png',
     onTap: () async {
       if (!await launchUrl(ultiMaker)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'Onshape',
+    iconAsset: 'assets/onshape.png',
+    onTap: () async {
+      if (!await launchUrl(onShape)) {
+        throw Exception('Could not launch');
+      }
+      // Handle the action when GitHub card is tapped
+    },
+  ),
+  ResourceItem(
+    title: 'Engineering Forum',
+    iconAsset: 'assets/forum.png',
+    onTap: () async {
+      if (!await launchUrl(engineeringForum)) {
         throw Exception('Could not launch');
       }
       // Handle the action when GitHub card is tapped

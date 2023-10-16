@@ -130,6 +130,7 @@ flutter:
     - assets/orcad.png
     - assets/sketchup.png
     - assets/ultimaker.png
+    - assets/onshape.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
