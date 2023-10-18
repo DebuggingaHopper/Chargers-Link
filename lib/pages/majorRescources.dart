@@ -456,7 +456,7 @@ class CompSciResourcesPage extends StatefulWidget {
 }
 
 class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
-  Color sliderColor = Color(0xFF780a2f);
+  Color sliderColor = Color(0xFF891726);
   int expandedSectionIndex = -1;
   bool isSectionsCSVisible = false; // Initially, the sections are hidden
   bool issecurityVisible = false;
