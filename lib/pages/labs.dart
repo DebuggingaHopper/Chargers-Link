@@ -143,7 +143,7 @@ Whether you're looking to create something extraordinary or utilize 3D printers 
 ---
  🚀 **Hope you enjoy Capitol Technology Universities Engineering Lab!**
 
-** Expose yourself to various opprtunities within this lab**
+**Expose yourself to various opprtunities within this lab**
 
 In this Laboratory not only will you be able to attend hands on courses but also allow yourself to have access to tools to teach yourself new skills! 🔧 
 
@@ -173,7 +173,7 @@ You'll work with the various tools that will allow you to teach yourself skills 
 ---
  🚀 **Welcome to Capitol Technology University's Space Flight Operations Training Center**
 
-** Explore the Universe, Train like an Astronaut**
+**Explore the Universe, Train like an Astronaut**
 
 In this cutting-edge Space Flight Operations Training Center, you're not just a student; you're an astronaut in training! 🌌
 

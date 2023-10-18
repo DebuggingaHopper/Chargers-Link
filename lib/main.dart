@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'pages/dashboard.dart';
+import 'package:flutter/services.dart';
 
 // Here we are setting our colors so we can set some custom colors when the user slides on the surroundings of the app
 const MaterialColor myColor = const MaterialColor(
@@ -22,7 +23,16 @@ const MaterialColor myColor = const MaterialColor(
 
 // Here we are saying to run the MyApp class, but we must also initliaze our dates
 void main() async {
-  initializeDateFormatting().then((_) => runApp(MyApp()));
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Ensure that Flutter is properly initialized
+
+  // Initialize date formatting
+  await initializeDateFormatting();
+
+  // Lock the screen orientation to portrait
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  runApp(MyApp());
 }
 
 // Here it's stating that the title would be Capitol App, the theme is set to our custom color
