@@ -4,6 +4,9 @@ Chargers Link is the desired Mobile Application that centralizes information wit
 
 This was a project that began due to Senior Design which led the developer to be ambitious in creating a mobile application for Android & IOS devices designed for the students made by someone who is involved with the student community. This is an application that is meant to unite the various resources the university provides into one centralized location. This is meant to allow students ease of access to various resources and improve quality of life as a result.
 
+## What is the Objective?
+The objective is to have all of the resources that Capitol Technology University has available for the student community to access and utilize for their needs. This is aimed at helping students who live on campus alongside those who are commuters. This is not meant to replace any of the current tools such as MyCaptiol or cap tech u Safety, instead it is meant to consolidate everything within one location.
+
 
 ## How to understand the code?
 To understand the code, we highly recommend that you go within the lib folder and see the resources there to understand how the application was created. It is important to note that some files should not be touched due to how certain files are just utilized as a foundation for the rest. However, before going there **please read the following section about pubspec.yaml**.
