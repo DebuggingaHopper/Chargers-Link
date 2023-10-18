@@ -10,6 +10,7 @@ import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
 
+// This following list has all of the IDE items for the CS Section
 final List<ResourceItem> ideItems = [
   ResourceItem(
     title: 'Visual Studio',
@@ -94,6 +95,7 @@ final List<ResourceItem> ideItems = [
   // Add more IDE items as needed
 ];
 
+// This following list has all of the Programming Languages for the CS Section
 final List<ResourceItem> languageItems = [
   ResourceItem(
     title: 'Python',
@@ -158,6 +160,8 @@ final List<ResourceItem> languageItems = [
   // Add more language items as needed
 ];
 
+// This following list has all of the other items for the CS Section
+
 final List<ResourceItem> otherItems = [
   ResourceItem(
     title: 'Leet Code',
@@ -199,6 +203,8 @@ final List<ResourceItem> otherItems = [
   // Add more other items as needed
 ];
 
+// This following list has all of the virtual machine & cloud services items for the CS Section
+
 final List<ResourceItem> machItems = [
   ResourceItem(
     title: 'Virtual Box',
@@ -239,6 +245,9 @@ final List<ResourceItem> machItems = [
   ),
   // Add more other items as needed
 ];
+
+// This following list has all of the cyber resources for the Cyber Section
+
 final List<ResourceItem> cyberItems = [
   ResourceItem(
     title: 'Signal 9 Team',
@@ -279,6 +288,7 @@ final List<ResourceItem> cyberItems = [
   ),
 ];
 
+// This following list has all of the cyber events for the Cyber Section
 final List<ResourceItem> cyberEvents = [
   ResourceItem(
     title: 'BsidesCharm',
@@ -322,6 +332,7 @@ final List<ResourceItem> cyberEvents = [
   ),
 ];
 
+// This following list has all of the UAS resources for the UAS Section
 final List<ResourceItem> uasResource = [
   ResourceItem(
     title: 'Part 107 Training Centers',
@@ -365,6 +376,7 @@ final List<ResourceItem> uasResource = [
   ),
 ];
 
+// This following list has all of the engineering resources for the Engineering Section
 final List<ResourceItem> engiResource = [
   ResourceItem(
     title: 'McMaster-Carr',
@@ -448,6 +460,7 @@ final List<ResourceItem> engiResource = [
   ),
 ];
 
+// Here we are creating the dahsboard for computer science resources
 class CompSciResourcesPage extends StatefulWidget {
   Color dashColor = Color(0xFF0A5678);
 
@@ -458,7 +471,8 @@ class CompSciResourcesPage extends StatefulWidget {
 class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
   Color sliderColor = Color(0xFF891726);
   int expandedSectionIndex = -1;
-  bool isSectionsCSVisible = false; // Initially, the sections are hidden
+  // Initially, the sections are hidden
+  bool isSectionsCSVisible = false;
   bool issecurityVisible = false;
   bool isairVisible = false;
   bool isEng = false;
@@ -496,6 +510,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Header (ListView)
+            // This is where we create the buttons for the list view where all the majors are displayed
             SingleChildScrollView(
               child: Container(
                 child: Column(
@@ -513,6 +528,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             Padding(
+                              // This creates the Computer Science Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -574,6 +590,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                               ),
                             ),
                             Padding(
+                              // This creates the Cyber Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -633,6 +650,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                               ),
                             ),
                             Padding(
+                              // This creates the engineering Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -693,6 +711,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                               ),
                             ),
                             Padding(
+                              // This creates the aerospace Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -738,7 +757,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                             height: 8,
                                           ),
                                           Text(
-                                            'Aerospace / UAS',
+                                            'AE / UAS',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 13,
@@ -765,11 +784,13 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
             // Main content sections
             ,
 
+            // Here we are saying that if the CS Section is visible, we create the following sections
             if (isSectionsCSVisible)
               Expanded(
                 child: ListView(
                   shrinkWrap: true,
                   children: [
+                    //Section 1
                     IDESection(
                       isExpanded: expandedSectionIndex == 0,
                       onTap: () {
@@ -778,6 +799,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    //Section 2
                     ProgrammingLanguagesSection(
                       isExpanded: expandedSectionIndex == 1,
                       onTap: () {
@@ -786,6 +808,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    // Section 3
                     OtherResourcesSection(
                       isExpanded: expandedSectionIndex == 2,
                       onTap: () {
@@ -794,6 +817,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    // Section 4
                     machineSection(
                       isExpanded: expandedSectionIndex == 3,
                       onTap: () {
@@ -805,11 +829,13 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                   ],
                 ),
               ),
+            // if thats avaliable we make UAS and AE sections avaliable
             if (isairVisible)
               Expanded(
                 child: ListView(
                   shrinkWrap: true,
                   children: [
+                    // Section 1
                     uasnewsSection(
                       isExpanded: expandedSectionIndex == 0,
                       onTap: () {
@@ -818,6 +844,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    // Section 2
                     objecteventsSection(
                       isExpanded: expandedSectionIndex == 1,
                       onTap: () {
@@ -826,6 +853,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    // Section 3
                     aepublishedSection(
                       isExpanded: expandedSectionIndex == 2,
                       onTap: () {
@@ -834,6 +862,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    // Section 4
                     aepublishednewsSection(
                       isExpanded: expandedSectionIndex == 3,
                       onTap: () {
@@ -846,11 +875,13 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                 ),
               ),
 
+            // If this is true, we enable the engineering & mechatronic sections
             if (isEng)
               Expanded(
                 child: ListView(
                   shrinkWrap: true,
                   children: [
+                    // section 1
                     engiSection(
                       isExpanded: expandedSectionIndex == 0,
                       onTap: () {
@@ -863,11 +894,13 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                 ),
               ),
 
+            // If this section is true, we create the Cyber Security Section
             if (issecurityVisible)
               Expanded(
                 child: ListView(
                   shrinkWrap: true,
                   children: [
+                    // Section 1
                     CyberSection(
                       isExpanded: expandedSectionIndex == 0,
                       onTap: () {
@@ -876,6 +909,8 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+
+                    //Section 2
                     cyberesourceSection(
                       isExpanded: expandedSectionIndex == 1,
                       onTap: () {
@@ -884,6 +919,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                         });
                       },
                     ),
+                    // Section 3
                     cybereventsSection(
                       isExpanded: expandedSectionIndex == 2,
                       onTap: () {
@@ -896,6 +932,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                 ),
               ),
 
+            // This creates the original dashboard
             if (isdash)
               Expanded(
                 child: ListView(
@@ -1036,7 +1073,7 @@ class _ProgrammingLanguagesSectionState
   }
 }
 
-// ** This is where we create the Pther Resources initial card where within it are the links to the other sources
+// ** This is where we create the Other Resources initial card where within it are the links to the other sources
 class OtherResourcesSection extends StatefulWidget {
   final bool isExpanded;
   final VoidCallback onTap;
@@ -1637,7 +1674,7 @@ class _cyberResourceState extends State<cyberesourceSection> {
   }
 }
 
-// ** This is where we create the IDE section initial card where within it are the links to the IDE's
+// ** This is where we create the Cyber Events section initial card where within it are the links to the IDE's
 class cybereventsSection extends StatefulWidget {
   final VoidCallback onTap;
   final bool isExpanded;
@@ -1875,7 +1912,7 @@ class _objecteventsSectionState extends State<objecteventsSection> {
   }
 }
 
-// ** This is where we create the UAS News section, this where we provide an RSSFeed to the recent cyber news for students
+// ** This is where we create the UAS News section, this where we provide an RSSFeed to the recent published news for students
 class uasnewsSection extends StatefulWidget {
   final VoidCallback onTap;
   final bool isExpanded;

@@ -107,8 +107,8 @@ Whether you're a casual gamer or a competitive esports enthusiast, our Esports A
     shortBio: '''
  🕒 **LAB HOURS**
 
-- **Monday - Friday:** 9 AM - 10 PM
-- **Saturday - Sunday:** 6 PM - 10 PM
+- **Monday - Friday:** 9 AM - 5 PM
+- **Saturday - Sunday:** By Appointment
 ---
 **🏢 Located at McGowan Academic  Center**
 
@@ -164,8 +164,8 @@ You'll work with the various tools that will allow you to teach yourself skills 
     shortBio: '''
 
 🕒 **Lab Hours:**
-- **Monday - Friday:** 9 AM - 10 PM
-- **Saturday - Sunday:** 6 PM - 10 PM
+- **Monday - Friday:** 9 AM - 5 PM
+- **Saturday - Sunday:** By Appointment
 
 ---
 **🏢 Located at McGowan Academic  Center**
