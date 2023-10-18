@@ -1,10 +1,9 @@
-// Copyright 2019 Aleksander Woźniak
-// SPDX-License-Identifier: Apache-2.0
-
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils.dart';
+
+// This creates the calander page, nothing needs to be done to this file unless they want to revamp the visual look
 
 class TableEventsExample extends StatefulWidget {
   @override
@@ -12,6 +11,7 @@ class TableEventsExample extends StatefulWidget {
 }
 
 class _TableEventsExampleState extends State<TableEventsExample> {
+  // we are creating the calander with the desired variables.
   late final ValueNotifier<List<MyEvent>> _selectedEvents;
   CalendarFormat _calendarFormat = CalendarFormat.month;
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode

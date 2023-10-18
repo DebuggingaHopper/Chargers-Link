@@ -1,3 +1,5 @@
+// The following is the list of our data which has the following three pieces of information: Title, Start Date, End date
+// This is the file you would need to edit to update the content that is shown within the calander.
 List<Map<String, dynamic>> AcademicData = [
   {
     "title": "Classes begin",

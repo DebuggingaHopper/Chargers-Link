@@ -16,7 +16,6 @@ class MyEvent {
   String toString() => title;
 }
 
-/// Function to get the events from the imported JSON data.
 /// Function to get the events from the imported JSON data, spanning multiple days if necessary.
 Map<DateTime, List<MyEvent>> _getEventsFromJson() {
   final eventsMap = LinkedHashMap<DateTime, List<MyEvent>>(
@@ -24,7 +23,9 @@ Map<DateTime, List<MyEvent>> _getEventsFromJson() {
     hashCode: getHashCode,
   );
 
+// We begin iterating through the dataset
   for (var eventData in AcademicData) {
+    // we bgein to set the information from the datatset to the corresponding variables
     final title = eventData['title'];
     final startDate = DateTime.parse(eventData['start_date']);
     final endDate = DateTime.parse(eventData['end_date']);
@@ -32,6 +33,7 @@ Map<DateTime, List<MyEvent>> _getEventsFromJson() {
     // Calculate the number of days between the start and end dates
     final days = daysInRange(startDate, endDate);
 
+    // We then create the data map with the corresponding information we acquired
     for (var date in days) {
       if (!eventsMap.containsKey(date)) {
         eventsMap[date] = [];
@@ -64,6 +66,7 @@ List<DateTime> daysInRange(DateTime first, DateTime last) {
   );
 }
 
+// It acquires the current date
 final kToday = DateTime.now().toUtc();
 
 // Use UTC date for kFirstDay to match with other generated dates

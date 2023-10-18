@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'labs_exp.dart';
 
+// First we create the class for labs stating the three main details it contains.
 class Lab {
   final String name;
   final String imageUrl;
@@ -10,8 +11,13 @@ class Lab {
 
   Lab({required this.name, required this.imageUrl, required this.shortBio});
 }
+// Now we are creating the list of all the labs, you see we have the name and the image it utilizes
+
+//Now you will notice the shortBio is composed of what we refer to as markdown Language
+// this is the language used for GitHub which allows the text to be visually appealing
 
 List<Lab> labList = [
+  // This creates the CS Lab
   Lab(
     name: 'CS Lab',
     imageUrl: 'assets/cs.jpg',
@@ -42,6 +48,7 @@ List<Lab> labList = [
 - 📊 Model evaluation
 ''',
   ),
+  // This creates the Cyber Lab
   Lab(
     name: 'Cyber Lab',
     imageUrl: 'assets/cyber.jpeg',
@@ -65,6 +72,7 @@ List<Lab> labList = [
 Additionally, students have the exciting opportunity to participate in 🏆 **Cyber Competitions**. For more details, please refer to the Cyber major section.
 ''',
   ),
+  // This creates the ESports Arena
   Lab(
     name: 'Esports Arena',
     imageUrl: 'assets/esports.jpg',
@@ -92,6 +100,7 @@ Whether you're a casual gamer or a competitive esports enthusiast, our Esports A
 
 ''',
   ),
+  // This creates the Fusion Lab
   Lab(
     name: 'Fusion Lab',
     imageUrl: 'assets/fusion.jpg',
@@ -119,6 +128,7 @@ Whether you're looking to create something extraordinary or utilize 3D printers 
 
 ''',
   ),
+  // This creates the Engineering Lab
   Lab(
     name: 'Electronics Engineering Lab',
     imageUrl: 'assets/engineering.jpg',
@@ -147,6 +157,7 @@ You'll work with the various tools that will allow you to teach yourself skills 
 
 ''',
   ),
+  // This creates the SFOTC
   Lab(
     name: 'Space Flight Operations Training Center',
     imageUrl: 'assets/space.jpg',
@@ -179,6 +190,7 @@ You'll work with the same tools that supported over 30 NASA missions. Our Virtua
 Our program equips you with the skills and knowledge to work on iconic NASA missions like Hubble, LRO, and JWST. 🛰️ Join us on a journey to the stars!
 ''',
   ),
+  // This creates the UAS Lab
   Lab(
     name: 'UAS Lab',
     imageUrl: 'assets/uas.jpg',
@@ -208,6 +220,7 @@ Our state-of-the-art facility is designed to provide you with hands-on experienc
 Explore the future of technology and security with us!
 ''',
   ),
+  // This creates the ICAM Lab
   Lab(
     name: 'ICAM Lab',
     imageUrl: 'assets/icam.jpg',
@@ -262,6 +275,7 @@ class LabPage extends StatelessWidget {
           ),
         ],
       ),
+      // This is howe have the pageviewer for the lab sections
       body: PageView.builder(
         itemCount: labList.length,
         itemBuilder: (context, index) {
@@ -272,6 +286,7 @@ class LabPage extends StatelessWidget {
     );
   }
 
+// This creates the labs
   Widget _buildLabCard(BuildContext context, Lab lab) {
     return Card(
       elevation: 5,
@@ -279,6 +294,7 @@ class LabPage extends StatelessWidget {
       child: SingleChildScrollView(
         // Wrap with SingleChildScrollView
         child: Column(
+          // This creates the lab entry with the provided image
           children: [
             Image.asset(
               lab.imageUrl,
@@ -286,6 +302,7 @@ class LabPage extends StatelessWidget {
               height: 200,
               fit: BoxFit.cover,
             ),
+            // This creates the lab entry with the provided lab name
             Container(
               color: dashColor,
               child: Padding(
@@ -305,6 +322,7 @@ class LabPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
+                  // This creates the lab entry with the provided lab description
                   // Wrap Markdown with a Container that adjusts its height based on the device's screen size
                   height: MediaQuery.of(context).size.height *
                       0.5, // Adjust the height as needed

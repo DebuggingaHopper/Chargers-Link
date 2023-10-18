@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// What this file is for is to simply display to the user what the dashboard section is about
+// Nothing major needs to be done on this file unless you would need to change the text
 class dashboardExplanation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,6 +16,7 @@ class dashboardExplanation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
+              // Title
               'What is Chargers Link?',
               style: GoogleFonts.publicSans(
                 fontSize: 22,
@@ -23,6 +26,7 @@ class dashboardExplanation extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             Text(
+              // Description / Content
               'Chargers Link is your tool to navigate Capitol Technology University, click on any of the vcards to get access to the most up to date information',
               style: GoogleFonts.publicSans(
                 fontSize: 20,

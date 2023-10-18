@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
 }
 
 class ShuttleScreen extends StatelessWidget {
+  // What we are creating is the schedule, if this needs to be updated just change it to the appropriate time & location
+  // Please ensure any new additions follow the provided format
   final Map<String, String> schedule = {
     '12:00': 'Capitol Tech',
     '2:00': 'Capitol Tech',
@@ -53,6 +55,7 @@ class ShuttleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // We are acquiring our current time, and then formatting it
     Color dashColor = Color(0xFF0A5678);
     final currentTime = DateTime.now();
     final formattedTime = _formatTime(currentTime);
@@ -96,6 +99,7 @@ class ShuttleScreen extends StatelessWidget {
             ),
           ),
           Center(
+            // The folloiwing displays when the next departure is to the user
             child: Text(
               'Next Departure: $nextDeparture',
               style: GoogleFonts.publicSans(
@@ -110,6 +114,7 @@ class ShuttleScreen extends StatelessWidget {
     );
   }
 
+// This is the function that formats the time to an appropriate time
   String _formatTime(DateTime time) {
     final hour = time.hour > 12 ? time.hour - 12 : time.hour;
     final minute = time.minute;
@@ -153,6 +158,7 @@ class ShuttleInfo extends StatelessWidget {
           0.7, // Adjust the height as needed
       child: ListView(
         children: sortedSchedule.map((entry) {
+          // We acquire this from the data we prestabloished which is why i reiterated to keep the format to prevent any problems
           String time = entry.key;
           String destination = entry.value;
 
@@ -189,6 +195,7 @@ class ShuttleInfo extends StatelessWidget {
           }
           time = '$hour:${time.split(':')[1]}';
 
+          // What we are displaying is then a list of the schedule
           return ListTile(
             leading: Image.asset(
               iconAsset.assetName,

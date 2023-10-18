@@ -46,8 +46,9 @@ class Dashboard extends StatelessWidget {
           await launch('https://discord.gg/EVaxGFbJuK');
         }, // Add your URL here or set it to null
       ),
-      // Add more menu items with onTap callbacks as needed.
+
       MenuItem(
+        // This leads the user to the Campus map
         title: "Campus Map",
         icon: Icons.map_outlined,
         onTap: () {
@@ -60,6 +61,7 @@ class Dashboard extends StatelessWidget {
         },
       ),
       MenuItem(
+          // This leads the user to the store with the Universities Safety Application.
           title: 'Emergency Contacts',
           icon: Icons.emergency_outlined,
           onTap: () {
@@ -70,6 +72,7 @@ class Dashboard extends StatelessWidget {
             );
           }),
       MenuItem(
+        // This leads to the Lab Dashboard
         title: 'Labs',
         icon: Icons.school_outlined,
         onTap: () {
@@ -96,6 +99,7 @@ class Dashboard extends StatelessWidget {
         }, // Add your URL here or set it to null
       ),
       MenuItem(
+        // This leads to the major dashboard where students can get access to the information pertaining to their major
         title: 'Majors',
         icon: Icons.verified_outlined,
         onTap: () {
@@ -109,6 +113,7 @@ class Dashboard extends StatelessWidget {
         },
       ),
       MenuItem(
+        // This leads to the link that allows users schedule time with a tutor
         title: 'Tutoring',
         icon: Icons.live_help_outlined,
         onTap: () async {
@@ -118,6 +123,7 @@ class Dashboard extends StatelessWidget {
         },
       ),
       MenuItem(
+        // This leads users to where they can order school spirit
         title: 'School Store',
         icon: Icons.store_mall_directory_outlined,
         onTap: () async {
