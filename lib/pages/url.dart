@@ -90,3 +90,13 @@ final Uri bsidesLink = Uri.parse('https://bsidescharm.org/#about');
 final Uri misiLink = Uri.parse('https://misi.tech/technical-engagements/');
 final Uri hammerconLink = Uri.parse('https://public.milcyber.org/hammercon');
 final Uri avengerconLink = Uri.parse('https://avengercon.com/');
+
+// ** The following is the discord link
+final String discord_url = 'https://discord.gg/CpRUBHfuAd';
+
+// ** The following links belong to my RSSFeed links
+final httpsUrl_iotd = Uri.parse('https://www.nasa.gov/feeds/iotd-feed/');
+final httpsUrl_release = Uri.parse('https://www.nasa.gov/news-release/feed/');
+final httpsUrl_drone = Uri.parse('https://dronedj.com/feed/');
+final httpsUrl_hack =
+    Uri.parse('https://thehackernews.com/feeds/posts/default?alt=rss');

@@ -253,7 +253,7 @@ final List<ResourceItem> cyberItems = [
     title: 'Signal 9 Team',
     iconAsset: 'assets/signal9.png',
     onTap: () async {
-      if (!await launch('https://discord.gg/CpRUBHfuAd')) {
+      if (!await launch(discord_url)) {
         throw Exception('Could not launch');
       }
       // Handle the action when GitHub card is tapped
@@ -1434,10 +1434,9 @@ class _CyberSectionState extends State<CyberSection> {
   int totalItems = 0; // Total number of items in the feed
 
   Future<void> fetchRssFeed() async {
-    final httpsUrl = Uri.parse(
-        'https://thehackernews.com/feeds/posts/default?alt=rss'); // Modify the URL to use HTTPS
+    // Modify the URL to use HTTPS
 
-    final response = await http.get(httpsUrl);
+    final response = await http.get(httpsUrl_hack);
 
     if (response.statusCode == 200) {
       final feed = RssFeed.parse(response.body);
@@ -1930,10 +1929,9 @@ class _uasnewsSectionState extends State<uasnewsSection> {
   int totalItems = 0; // Total number of items in the feed
 
   Future<void> fetchRssFeed() async {
-    final httpsUrl =
-        Uri.parse('https://dronedj.com/feed/'); // Modify the URL to use HTTPS
+    // Modify the URL to use HTTPS
 
-    final response = await http.get(httpsUrl);
+    final response = await http.get(httpsUrl_drone);
 
     if (response.statusCode == 200) {
       final feed = RssFeed.parse(response.body);
@@ -2080,10 +2078,7 @@ class _aepublishedSectionState extends State<aepublishedSection> {
   int totalItems = 0; // Total number of items in the feed
 
   Future<void> fetchRssFeed() async {
-    final httpsUrl = Uri.parse(
-        'https://www.nasa.gov/feeds/iotd-feed/'); // Modify the URL to use HTTPS
-
-    final response = await http.get(httpsUrl);
+    final response = await http.get(httpsUrl_iotd);
 
     if (response.statusCode == 200) {
       final feed = RssFeed.parse(response.body);
@@ -2237,9 +2232,7 @@ class _aepublishednewsSectionState extends State<aepublishednewsSection> {
   int totalItems = 0; // Total number of items in the feed
 
   Future<void> fetchRssFeed() async {
-    final httpsUrl = Uri.parse('https://www.nasa.gov/news-release/feed/');
-
-    final response = await http.get(httpsUrl);
+    final response = await http.get(httpsUrl_release);
 
     if (response.statusCode == 200) {
       final feed = RssFeed.parse(response.body);
