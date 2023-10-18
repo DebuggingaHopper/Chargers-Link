@@ -456,6 +456,7 @@ class CompSciResourcesPage extends StatefulWidget {
 }
 
 class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
+  Color sliderColor = Color(0xFF780a2f);
   int expandedSectionIndex = -1;
   bool isSectionsCSVisible = false; // Initially, the sections are hidden
   bool issecurityVisible = false;
@@ -490,7 +491,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(1.5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -505,6 +506,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                     SizedBox(
                       height: 85,
                       child: Container(
+                        color: sliderColor,
                         child: ListView(
                           // Set shrinkWrap to false
                           shrinkWrap: false,
@@ -529,20 +531,42 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                 },
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      'assets/CS.png',
-                                      width: 35,
-                                      height: 35,
-                                    ),
-                                    SizedBox(
-                                        height:
-                                            8), // Adjust the spacing between the icon and text
-                                    Text(
-                                      'Computer Science',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
+                                    GestureDetector(
+                                      // Wrap the entire content with GestureDetector
+                                      onTap: () {
+                                        // Add the same logic here as in your outer GestureDetector
+                                        setState(() {
+                                          isSectionsCSVisible =
+                                              !isSectionsCSVisible;
+                                          issecurityVisible = false;
+                                          isairVisible = false;
+                                          isEng = false;
+
+                                          if (isSectionsCSVisible)
+                                            isdash = false;
+                                          else
+                                            isdash = true;
+                                        });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/CS.png',
+                                            width: 35,
+                                            height: 35,
+                                          ),
+                                          SizedBox(
+                                            height: 8,
+                                          ),
+                                          Text(
+                                            'Computer Science',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -567,20 +591,41 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                 },
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      'assets/Cyber.png', // Replace with the actual path to your PNG image
-                                      width: 35,
-                                      height: 35,
-                                    ),
-                                    SizedBox(
-                                        height:
-                                            8), // Adjust the spacing between the icon and text
-                                    Text(
-                                      'Cyber Security',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
+                                    GestureDetector(
+                                      // Wrap the entire content with GestureDetector
+                                      onTap: () {
+                                        // Add the same logic here as in your outer GestureDetector
+                                        setState(() {
+                                          isSectionsCSVisible = false;
+                                          issecurityVisible =
+                                              !issecurityVisible;
+                                          isairVisible = false;
+                                          isEng = false;
+                                          if (issecurityVisible)
+                                            isdash = false;
+                                          else
+                                            isdash = true;
+                                        });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/Cyber.png', // Replace with the actual path to your PNG image
+                                            width: 35,
+                                            height: 35,
+                                          ),
+                                          SizedBox(
+                                            height: 8,
+                                          ),
+                                          Text(
+                                            'Cyber Security',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -606,20 +651,41 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                 },
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      'assets/engineering.png',
-                                      width: 35,
-                                      height: 35,
-                                    ),
-                                    SizedBox(
-                                        height:
-                                            8), // Adjust the spacing between the icon and text
-                                    Text(
-                                      'Electrical / Mechatronics',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
+                                    GestureDetector(
+                                      // Wrap the entire content with GestureDetector
+                                      onTap: () {
+                                        // Add the same logic here as in your outer GestureDetector
+                                        setState(() {
+                                          isSectionsCSVisible = false;
+                                          issecurityVisible = false;
+                                          isairVisible = false;
+                                          isEng = !isEng;
+                                          isdash = false;
+                                          if (isEng)
+                                            isdash = false;
+                                          else
+                                            isdash = true;
+                                        });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/engineering.png',
+                                            width: 35,
+                                            height: 35,
+                                          ),
+                                          SizedBox(
+                                            height: 8,
+                                          ),
+                                          Text(
+                                            'Electrical / Mechatronics',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -645,20 +711,41 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                 },
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      'assets/aerospace.png',
-                                      width: 35,
-                                      height: 35,
-                                    ),
-                                    SizedBox(
-                                        height:
-                                            8), // Adjust the spacing between the icon and text
-                                    Text(
-                                      'Aerospace / UAS',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
+                                    GestureDetector(
+                                      // Wrap the entire content with GestureDetector
+                                      onTap: () {
+                                        // Add the same logic here as in your outer GestureDetector
+                                        setState(() {
+                                          isSectionsCSVisible = false;
+                                          issecurityVisible = false;
+                                          isairVisible = !isairVisible;
+                                          isdash = false;
+                                          isEng = false;
+                                          if (isairVisible)
+                                            isdash = false;
+                                          else
+                                            isdash = true;
+                                        });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/aerospace.png',
+                                            width: 35,
+                                            height: 35,
+                                          ),
+                                          SizedBox(
+                                            height: 8,
+                                          ),
+                                          Text(
+                                            'Aerospace / UAS',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
