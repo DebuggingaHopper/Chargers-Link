@@ -228,7 +228,7 @@ It opens the link to the Advising calendly which allows the user to schedule an 
 
 It opens the link to the megaByte Cafe website which allows the users to order their food through their browser. This link can be changed within url.dart
 
-## What Happens When I Click Community
+### What Happens When I Click Community
 It launches the Discord App on the user's phone to then provides an invite to the official Discord server for Capitol Technology University. The link for the official Discord URL can be changed within url.dart
 
 ### What does pressing Campus Map lead to: What is MapPage.dart
