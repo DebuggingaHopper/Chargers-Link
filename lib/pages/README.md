@@ -1,6 +1,6 @@
 # What is the Pages Folder?
 
-The Pages folder consists of all the files that create all of the various pages that the app creates. We will go through each of the crucial pages in order of how to access it, however, the first page that will be delved into is the url.dart file since it is crucial. Overall this README will delve into explaining what each file contributes in regards to the application.
+The Pages folder consists of all the files that create all of the various pages that the app creates. We will go through each of the crucial pages in order of how to access it, however, the first page that will be delved into is the url.dart file since it is crucial. Overall this README will delve into explaining what each file contributes in regards to the application, and what crucial information you may need to change & how to do it.
 
 ## What is url.dart?
 
