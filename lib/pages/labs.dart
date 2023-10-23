@@ -255,6 +255,7 @@ You'll work with the various drones and additonal unmanned systems to acquire fu
 Color dashColor = Color(0xFF0A5678);
 
 class LabPage extends StatelessWidget {
+  final PageController _pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -275,15 +276,40 @@ class LabPage extends StatelessWidget {
           ),
         ],
       ),
-      // This is howe have the pageviewer for the lab sections
       body: PageView.builder(
-        itemCount: labList.length,
+        controller: _pageController,
+        itemCount: labList.isEmpty ? 0 : labList.length + 2,
+        // Add two extra pages, one at the beginning and one at the end for looping
         itemBuilder: (context, index) {
-          final lab = labList[index];
-          return _buildLabCard(context, lab);
+          if (labList.isEmpty) {
+            return null;
+          }
+
+          if (index == 0) {
+            // The first extra page should show the last lab
+            return _buildLabCard(context, labList[labList.length - 1]);
+          } else if (index == labList.length + 1) {
+            // The last extra page should show the first lab
+            return _buildLabCard(context, labList[0]);
+          } else {
+            // For the actual lab items, show them in a loop
+            final lab = labList[index - 1];
+            return _buildLabCard(context, lab);
+          }
         },
+        onPageChanged: onPageChanged,
       ),
     );
+  }
+
+  void onPageChanged(int index) {
+    final pageCount = labList.length;
+
+    if (index == 0) {
+      _pageController.jumpToPage(pageCount);
+    } else if (index == pageCount + 1) {
+      _pageController.jumpToPage(1);
+    }
   }
 
 // This creates the labs

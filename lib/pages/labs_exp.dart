@@ -27,7 +27,7 @@ class labsExplanation extends StatelessWidget {
             SizedBox(height: 16.0),
             // content
             Text(
-              'At Capitol Technology University we have labs avaliable for all students to visit to expand their knowledge, in this page you can see quick preview of the labs alongside their hours.',
+              'At Capitol Technology University we have labs avaliable for all students to visit to expand their knowledge, in this page you can see quick preview of the labs alongside their hours. To navigate this page, please swipe left or right to proceed!',
               style: GoogleFonts.publicSans(
                 fontSize: 20,
                 color: Colors.white,
