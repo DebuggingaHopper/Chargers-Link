@@ -88,6 +88,20 @@ class ShuttleScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
+              // The folloiwing displays when the next departure is to the user
+              child: Text(
+                'Next Departure: $nextDeparture',
+                style: GoogleFonts.publicSans(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -95,17 +109,6 @@ class ShuttleScreen extends StatelessWidget {
                 children: [
                   ShuttleInfo(schedule: schedule),
                 ],
-              ),
-            ),
-          ),
-          Center(
-            // The folloiwing displays when the next departure is to the user
-            child: Text(
-              'Next Departure: $nextDeparture',
-              style: GoogleFonts.publicSans(
-                fontSize: 32,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
               ),
             ),
           ),
@@ -133,7 +136,7 @@ class ShuttleScreen extends StatelessWidget {
       if (entry.key.compareTo(currentTime) > 0) {
         final nextDepartureTime = entry.key;
         final nextDepartureLocation = entry.value;
-        return '$nextDepartureTime - $nextDepartureLocation';
+        return '$nextDepartureTime $nextDepartureLocation';
       }
     }
 
@@ -155,7 +158,7 @@ class ShuttleInfo extends StatelessWidget {
 
     return Container(
       height: MediaQuery.of(context).size.height *
-          0.7, // Adjust the height as needed
+          0.8, // Adjust the height as needed
       child: ListView(
         children: sortedSchedule.map((entry) {
           // We acquire this from the data we prestabloished which is why i reiterated to keep the format to prevent any problems

@@ -23,8 +23,21 @@ class Dashboard extends StatelessWidget {
         title: "Advising",
         icon: Icons.person_pin,
         onTap: () async {
-          if (!await launchUrl(scheduleAdv)) {
-            throw Exception('Could not launch');
+          final advisorSelection = await showDialog<String>(
+            context: context,
+            builder: (BuildContext context) {
+              return AdvisorSelectionDialog();
+            },
+          );
+
+          if (advisorSelection == 'Lainey') {
+            if (!await launchUrl(scheduleAdv_Lainey)) {
+              throw Exception('Could not launch');
+            }
+          } else if (advisorSelection == 'Brittany') {
+            if (!await launchUrl(scheduleAdv_Brittany)) {
+              throw Exception('Could not launch');
+            }
           }
         },
       ),
@@ -66,9 +79,8 @@ class Dashboard extends StatelessWidget {
           icon: Icons.emergency_outlined,
           onTap: () {
             LaunchReview.launch(
-              androidAppId:
-                  'com.cutcom.apparmor.captechu&hl=en_US&gl=US', // Replace with your Android app ID
-              iOSAppId: '6447269281', // Replace with your iOS app ID
+              androidAppId: androidId, // Replace with your Android app ID
+              iOSAppId: iosId, // Replace with your iOS app ID
             );
           }),
       MenuItem(
@@ -289,6 +301,67 @@ class Dashboard extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+// This creates the Dialog that allows the user to select one of the two Advisors currently avaliable
+class AdvisorSelectionDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Choose an Advisor', textAlign: TextAlign.center),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          AdvisorCard(
+            name: 'Lainey Molin',
+            onTap: () {
+              Navigator.pop(context, 'Lainey');
+            },
+          ),
+          AdvisorCard(
+            name: 'Brittany Sanner',
+            onTap: () {
+              Navigator.pop(context, 'Brittany');
+            },
+          ),
+          // Add more AdvisorCard widgets as needed
+        ],
+      ),
+    );
+  }
+}
+
+class AdvisorCard extends StatelessWidget {
+  final String name;
+  final VoidCallback onTap;
+
+  AdvisorCard({
+    required this.name,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: 3,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Icon(Icons.account_circle, size: 60, color: Colors.blue),
+              SizedBox(height: 16),
+              Text(
+                name,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -47,8 +47,10 @@ final Uri vboxUrl = Uri.parse('https://www.virtualbox.org/');
 * * The Following URLS are use for the original dashboard such as myCapitol, Advising, Megabyte, virtual Library, and the capitol discord
 */
 final Uri myCapitol = Uri.parse('https://mycapitol.captechu.edu/ics/');
-final Uri scheduleAdv =
+final Uri scheduleAdv_Lainey =
     Uri.parse('https://calendly.com/lmolin/30min?month=2023-08');
+final Uri scheduleAdv_Brittany =
+    Uri.parse('https://calendly.com/bmsanner/30min?month=2023-10');
 final Uri megaByte = Uri.parse(
     'https://order.toasttab.com/online/megabyte-cafe-11301-springfield-rd');
 final Uri virtualLibrary =
@@ -56,6 +58,8 @@ final Uri virtualLibrary =
 final Uri capDiscord = Uri.parse('https://discord.gg/EVaxGFbJuK');
 final Uri studentSuccess = Uri.parse('https://captechu.setmore.com/');
 final Uri capitolStore = Uri.parse('https://shopcapitoltech.merchorders.com/');
+final String androidId = 'com.cutcom.apparmor.captechu&hl=en_US&gl=US';
+final String iosId = '6447269281';
 
 // ** The following are the links for the Cyber Security resources
 final Uri Signal9 = Uri.parse('https://discord.gg/CpRUBHfuAd');

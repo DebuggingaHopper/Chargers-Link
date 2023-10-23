@@ -523,12 +523,10 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                       child: Container(
                         color: sliderColor,
                         child: ListView(
-                          // Set shrinkWrap to false
                           shrinkWrap: false,
                           scrollDirection: Axis.horizontal,
                           children: [
                             Padding(
-                              // This creates the Computer Science Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -545,52 +543,55 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                       isdash = true;
                                   });
                                 },
-                                child: Column(
-                                  children: [
-                                    GestureDetector(
-                                      // Wrap the entire content with GestureDetector
-                                      onTap: () {
-                                        // Add the same logic here as in your outer GestureDetector
-                                        setState(() {
-                                          isSectionsCSVisible =
-                                              !isSectionsCSVisible;
-                                          issecurityVisible = false;
-                                          isairVisible = false;
-                                          isEng = false;
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isSectionsCSVisible =
+                                                !isSectionsCSVisible;
+                                            issecurityVisible = false;
+                                            isairVisible = false;
+                                            isEng = false;
 
-                                          if (isSectionsCSVisible)
-                                            isdash = false;
-                                          else
-                                            isdash = true;
-                                        });
-                                      },
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                            'assets/CS.png',
-                                            width: 35,
-                                            height: 35,
-                                          ),
-                                          SizedBox(
-                                            height: 8,
-                                          ),
-                                          Text(
-                                            'Computer Science',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
+                                            if (isSectionsCSVisible)
+                                              isdash = false;
+                                            else
+                                              isdash = true;
+                                          });
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Image.asset(
+                                              'assets/CS.png',
+                                              width: 35,
+                                              height: 35,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(
+                                              height: 8,
+                                            ),
+                                            Text(
+                                              'Computer Science',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                             Padding(
-                              // This creates the Cyber Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -606,51 +607,54 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                       isdash = true;
                                   });
                                 },
-                                child: Column(
-                                  children: [
-                                    GestureDetector(
-                                      // Wrap the entire content with GestureDetector
-                                      onTap: () {
-                                        // Add the same logic here as in your outer GestureDetector
-                                        setState(() {
-                                          isSectionsCSVisible = false;
-                                          issecurityVisible =
-                                              !issecurityVisible;
-                                          isairVisible = false;
-                                          isEng = false;
-                                          if (issecurityVisible)
-                                            isdash = false;
-                                          else
-                                            isdash = true;
-                                        });
-                                      },
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                            'assets/Cyber.png', // Replace with the actual path to your PNG image
-                                            width: 35,
-                                            height: 35,
-                                          ),
-                                          SizedBox(
-                                            height: 8,
-                                          ),
-                                          Text(
-                                            'Cyber Security',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isSectionsCSVisible = false;
+                                            issecurityVisible =
+                                                !issecurityVisible;
+                                            isairVisible = false;
+                                            isEng = false;
+                                            if (issecurityVisible)
+                                              isdash = false;
+                                            else
+                                              isdash = true;
+                                          });
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Image.asset(
+                                              'assets/Cyber.png',
+                                              width: 35,
+                                              height: 35,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(
+                                              height: 8,
+                                            ),
+                                            Text(
+                                              'Cyber Security',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                             Padding(
-                              // This creates the engineering Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -667,51 +671,54 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                       isdash = true;
                                   });
                                 },
-                                child: Column(
-                                  children: [
-                                    GestureDetector(
-                                      // Wrap the entire content with GestureDetector
-                                      onTap: () {
-                                        // Add the same logic here as in your outer GestureDetector
-                                        setState(() {
-                                          isSectionsCSVisible = false;
-                                          issecurityVisible = false;
-                                          isairVisible = false;
-                                          isEng = !isEng;
-                                          isdash = false;
-                                          if (isEng)
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isSectionsCSVisible = false;
+                                            issecurityVisible = false;
+                                            isairVisible = false;
+                                            isEng = !isEng;
                                             isdash = false;
-                                          else
-                                            isdash = true;
-                                        });
-                                      },
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                            'assets/engineering.png',
-                                            width: 35,
-                                            height: 35,
-                                          ),
-                                          SizedBox(
-                                            height: 8,
-                                          ),
-                                          Text(
-                                            'Electrical / Mechatronics',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
+                                            if (isEng)
+                                              isdash = false;
+                                            else
+                                              isdash = true;
+                                          });
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Image.asset(
+                                              'assets/engineering.png',
+                                              width: 35,
+                                              height: 35,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(
+                                              height: 8,
+                                            ),
+                                            Text(
+                                              'Electrical / Mechatronics',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                             Padding(
-                              // This creates the aerospace Section
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 35.0),
                               child: GestureDetector(
@@ -728,49 +735,53 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                                       isdash = true;
                                   });
                                 },
-                                child: Column(
-                                  children: [
-                                    GestureDetector(
-                                      // Wrap the entire content with GestureDetector
-                                      onTap: () {
-                                        // Add the same logic here as in your outer GestureDetector
-                                        setState(() {
-                                          isSectionsCSVisible = false;
-                                          issecurityVisible = false;
-                                          isairVisible = !isairVisible;
-                                          isdash = false;
-                                          isEng = false;
-                                          if (isairVisible)
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isSectionsCSVisible = false;
+                                            issecurityVisible = false;
+                                            isairVisible = !isairVisible;
                                             isdash = false;
-                                          else
-                                            isdash = true;
-                                        });
-                                      },
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                            'assets/aerospace.png',
-                                            width: 35,
-                                            height: 35,
-                                          ),
-                                          SizedBox(
-                                            height: 8,
-                                          ),
-                                          Text(
-                                            'AE / UAS',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.bold,
+                                            isEng = false;
+                                            if (isairVisible)
+                                              isdash = false;
+                                            else
+                                              isdash = true;
+                                          });
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Image.asset(
+                                              'assets/aerospace.png',
+                                              width: 35,
+                                              height: 35,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(
+                                              height: 8,
+                                            ),
+                                            Text(
+                                              'AE / UAS',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -779,6 +790,7 @@ class _CompSciResourcesPageState extends State<CompSciResourcesPage> {
                 ),
               ),
             )
+
             // Toggle Icon
 
             // Main content sections
