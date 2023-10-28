@@ -17,6 +17,7 @@ class Dashboard extends StatelessWidget {
     /*
     * * This is where we set our desired buttons for the dashboard by making them into their own entries within a list of the mneuItems class
     */
+    /// Set up buttons by embedding them within their own list...
     final List<MenuItem> menuItems = [
       MenuItem(
         // ** This is where we would send the user to the calendly advising page, the url can be changed in the url.dart if the url chnages
@@ -56,6 +57,7 @@ class Dashboard extends StatelessWidget {
         title: 'Community',
         icon: Icons.groups_2_outlined,
         onTap: () async {
+          // TODO: Find alternate and fix this.
           await launch('https://discord.gg/EVaxGFbJuK');
         }, // Add your URL here or set it to null
       ),

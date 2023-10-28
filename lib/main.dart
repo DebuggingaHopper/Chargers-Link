@@ -21,36 +21,18 @@ const MaterialColor myColor = const MaterialColor(
 );
 // myColor is referring the dark red color we are using for the application
 
-// Here we are saying to run the MyApp class, but we must also initliaze our dates
+/// Entry point
+/// Initialize date before app launch and lock screen orientation to portrait.
 void main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); // Ensure that Flutter is properly initialized
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize date formatting
   await initializeDateFormatting();
-
-  // Lock the screen orientation to portrait
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   runApp(MyApp());
 }
 
-// Here it's stating that the title would be Capitol App, the theme is set to our custom color
-// Then we set our home page to page we establish as start page
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Capitol App',
-      theme: ThemeData(primarySwatch: myColor),
-      home: StartPage(),
-    );
-  }
-}
-
-// The following is our start page, we are setting the theme to the desired color and creating the dahsborad from the dashboard dart
-class StartPage extends StatelessWidget {
-  // The following is our foundation of the startPage
+class LaunchApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -60,3 +42,7 @@ class StartPage extends StatelessWidget {
     );
   }
 }
+
+/// MyApp is the root widget for this application.
+/// Sets app title, theme, and sets up the home page.
+class MyApp extends LaunchApplication {}
