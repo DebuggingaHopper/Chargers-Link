@@ -13,7 +13,7 @@ This is aimed at helping students who live on campus alongside those who are com
 MyCaptiol or cap tech u Safety, instead it is meant to consolidate everything within one location.
 
 
-## Getting familiar with Capitol-Link?
+## Getting familiar with Chargers-Link?
 To understand the code, we highly recommend that you go within the lib folder and see the resources there to understand how the application was created. 
 It is important to note that some files should not be touched due to how certain files are just utilized as a foundation for the rest. 
 However, before going there **please read the following section about pubspec.yaml**.
